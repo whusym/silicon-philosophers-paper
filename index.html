@@ -102,21 +102,6 @@
                 </p>
                 <img src="assets/figures/figure1_8panel_bc.png" alt="8-panel response matrix comparison" class="result-img-contained" style="max-width: 100%; margin-top: 1em;">
             </div>
-
-            <div class="result-section">
-                <h3>3. Model Hedging Behavior</h3>
-                <p><strong>GPT-4o, GPT-5.1, and Qwen 3 4B exhibit extreme hedging:</strong></p>
-                <ul>
-                    <li><strong>Humans:</strong> 44.8% Accept, 41.6% Lean toward → balanced confidence</li>
-                    <li><strong>GPT-4o/5.1:</strong> ~4.5% Accept, ~78% Lean toward → 20× more hedging</li>
-                    <li><strong>Qwen 3 4B:</strong> 2.2% Accept, 76.3% Lean toward → extreme caution</li>
-                </ul>
-                <p style="margin-top: 0.5em;">
-                    <em>All models received identical prompts. This hedging pattern reflects RLHF/safety training,
-                    not data quality issues. It contributes to variance collapse by clustering responses around "lean toward" (0.75)
-                    rather than spreading across strong positions.</em>
-                </p>
-            </div>
         </section>
 
         <!-- Interactive Data Exploration -->
