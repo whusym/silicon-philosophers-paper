@@ -1,0 +1,317 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 320" width="1050" height="320">
+
+  <!-- Background -->
+  <rect width="1050" height="320" fill="#ffffff"/>
+
+  <!-- ELEMENT 1: Profile Conditioning -->
+  <g transform="translate(20, 35)">
+    <!-- Box -->
+    <rect x="0" y="0" width="200" height="250" rx="8" ry="8" fill="#f8fafa" stroke="#d1d5db" stroke-width="1.5"/>
+    
+    <!-- Label -->
+    <text x="100" y="24" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="600" fill="#374151" text-anchor="middle">Profile Conditioning</text>
+
+    <!-- Person icon -->
+    <g transform="translate(75, 38)">
+      <circle cx="25" cy="12" r="12" fill="#0d9488"/>
+      <path d="M5 45 L5 35 Q5 25 25 25 Q45 25 45 35 L45 45 Z" fill="#0d9488"/>
+    </g>
+
+    <!-- Prompt text box -->
+    <rect x="12" y="95" width="176" height="140" rx="4" ry="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    
+    <!-- Prompt content -->
+    <text x="20" y="115" font-family="Courier New, monospace" font-size="9" fill="#374151">Philosopher at <tspan fill="#0d9488" font-weight="600">NYU</tspan></text>
+    <text x="20" y="132" font-family="Courier New, monospace" font-size="9" fill="#374151">PhD: <tspan fill="#0d9488" font-weight="600">Princeton</tspan>, <tspan fill="#0d9488" font-weight="600">2005</tspan></text>
+    <text x="20" y="153" font-family="Courier New, monospace" font-size="9" fill="#374151">AOS: <tspan fill="#0d9488" font-weight="600">Philosophy of Mind</tspan>,</text>
+    <text x="20" y="166" font-family="Courier New, monospace" font-size="9" fill="#374151">     <tspan fill="#0d9488" font-weight="600">Metaphysics</tspan></text>
+    <text x="20" y="187" font-family="Courier New, monospace" font-size="9" fill="#374151">AOI: <tspan fill="#0d9488" font-weight="600">Asian Philosophy</tspan>,</text>
+    <text x="20" y="200" font-family="Courier New, monospace" font-size="9" fill="#374151">     <tspan fill="#0d9488" font-weight="600">Applied Ethics</tspan></text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <g transform="translate(230, 145)">
+    <line x1="0" y1="15" x2="40" y2="15" stroke="#9ca3af" stroke-width="2"/>
+    <polygon points="40,15 30,9 30,21" fill="#9ca3af"/>
+  </g>
+
+  <!-- ELEMENT 2: Survey Question -->
+  <g transform="translate(280, 35)">
+    <!-- Box -->
+    <rect x="0" y="0" width="200" height="250" rx="8" ry="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+
+    <!-- Label -->
+    <text x="100" y="24" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="600" fill="#374151" text-anchor="middle">Survey Question</text>
+
+    <!-- Prompt text box -->
+    <rect x="12" y="38" width="176" height="200" rx="4" ry="4" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    
+    <!-- Prompt content -->
+    <text x="20" y="56" font-family="Courier New, monospace" font-size="8.5" fill="#374151">You are answering a survey</text>
+    <text x="20" y="68" font-family="Courier New, monospace" font-size="8.5" fill="#374151">by PhilPapers...</text>
+    <text x="20" y="86" font-family="Courier New, monospace" font-size="8.5" fill="#374151">Question: <tspan font-weight="600" fill="#0d9488">Mind</tspan></text>
+    <text x="20" y="104" font-family="Courier New, monospace" font-size="8.5" fill="#374151">Available response options:</text>
+    <text x="20" y="118" font-family="Courier New, monospace" font-size="8.5" fill="#374151">- Accept: physicalism</text>
+    <text x="20" y="131" font-family="Courier New, monospace" font-size="8.5" fill="#374151">- Lean toward: physicalism</text>
+    <text x="20" y="144" font-family="Courier New, monospace" font-size="8.5" fill="#374151">- Agnostic/undecided</text>
+    <text x="20" y="157" font-family="Courier New, monospace" font-size="8.5" fill="#374151">- Lean against: physicalism</text>
+    <text x="20" y="170" font-family="Courier New, monospace" font-size="8.5" fill="#374151">- Against: physicalism</text>
+    <text x="20" y="188" font-family="Courier New, monospace" font-size="8.5" fill="#374151">Respond ONLY with the JSON</text>
+    <text x="20" y="200" font-family="Courier New, monospace" font-size="8.5" fill="#374151">list, no other text.</text>
+  </g>
+  
+  <!-- Arrow 2 with "Sent to LLM" label -->
+  <g transform="translate(490, 145)">
+    <!-- Centered label above arrow -->
+    <rect x="-2.5" y="-15" width="45" height="18" rx="3" ry="3" fill="#0d9488"/>
+    <text x="20" y="-2" font-family="Helvetica Neue, Arial, sans-serif" font-size="7" font-weight="600" fill="#ffffff" text-anchor="middle">Sent to LLM</text>
+    <!-- Arrow -->
+    <line x1="0" y1="15" x2="40" y2="15" stroke="#0d9488" stroke-width="2"/>
+    <polygon points="40,15 30,9 30,21" fill="#0d9488"/>
+  </g>
+
+  <!-- ELEMENT 3: Response Coding -->
+  <g transform="translate(540, 35)">
+    <!-- Box -->
+    <rect x="0" y="0" width="200" height="250" rx="8" ry="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+
+    <!-- Label -->
+    <text x="100" y="24" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="600" fill="#374151" text-anchor="middle">Response Coding</text>
+
+    <!-- Response text -->
+    <text x="100" y="52" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="500" fill="#0d9488" text-anchor="middle">["Accept: physicalism"]</text>
+    
+    <!-- Discrete score boxes -->
+    <!-- Box 1: Against (0.0) -->
+    <rect x="19" y="72" width="30" height="45" rx="3" ry="3" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+    <text x="34" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">Agn</text>
+    <text x="34" y="108" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#9ca3af" text-anchor="middle">0.0</text>
+
+    <!-- Box 2: Lean against (0.25) -->
+    <rect x="52" y="72" width="30" height="45" rx="3" ry="3" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1"/>
+    <text x="67" y="86" font-family="Helvetica Neue, Arial, sans-serif" font-size="6.5" fill="#6b7280" text-anchor="middle">Lean</text>
+    <text x="67" y="94" font-family="Helvetica Neue, Arial, sans-serif" font-size="6.5" fill="#6b7280" text-anchor="middle">agn</text>
+    <text x="67" y="108" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#9ca3af" text-anchor="middle">.25</text>
+
+    <!-- Box 3: Agnostic (0.5) -->
+    <rect x="85" y="72" width="30" height="45" rx="3" ry="3" fill="#a7f3d0" stroke="#d1d5db" stroke-width="1"/>
+    <text x="100" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="7" fill="#6b7280" text-anchor="middle">Agno</text>
+    <text x="100" y="108" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#6b7280" text-anchor="middle">0.5</text>
+
+    <!-- Box 4: Lean toward (0.75) -->
+    <rect x="118" y="72" width="30" height="45" rx="3" ry="3" fill="#5eead4" stroke="#d1d5db" stroke-width="1"/>
+    <text x="133" y="86" font-family="Helvetica Neue, Arial, sans-serif" font-size="6.5" fill="#374151" text-anchor="middle">Lean</text>
+    <text x="133" y="94" font-family="Helvetica Neue, Arial, sans-serif" font-size="6.5" fill="#374151" text-anchor="middle">twd</text>
+    <text x="133" y="108" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#374151" text-anchor="middle">.75</text>
+
+    <!-- Box 5: Accept (1.0) - SELECTED -->
+    <rect x="151" y="72" width="30" height="45" rx="3" ry="3" fill="#0d9488" stroke="#0d9488" stroke-width="2"/>
+    <text x="166" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="7" fill="#ffffff" text-anchor="middle">Acpt</text>
+    <text x="166" y="108" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">1.0</text>
+
+    <!-- Selection indicator -->
+    <polygon points="166,120 161,128 171,128" fill="#0d9488"/>
+
+    <!-- Score display -->
+    <rect x="40" y="145" width="120" height="45" rx="5" ry="5" fill="#ffffff" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="100" y="164" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">Selected Score</text>
+    <text x="100" y="182" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" font-weight="700" fill="#0d9488" text-anchor="middle">1.0</text>
+
+    <!-- Scale note -->
+    <text x="100" y="220" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#9ca3af" text-anchor="middle" font-style="italic">Normalized to [0, 1]</text>
+  </g>
+
+  <!-- Arrow 3 with "Aggregate Responses" label -->
+  <g transform="translate(750, 145)">
+    <!-- Centered label above arrow -->
+    <rect x="-5" y="-19" width="50" height="24" rx="3" ry="3" fill="#ef4444"/>
+    <text x="20" y="-7" font-family="Helvetica Neue, Arial, sans-serif" font-size="7" font-weight="600" fill="#ffffff" text-anchor="middle">Aggregate</text>
+    <text x="20" y="0" font-family="Helvetica Neue, Arial, sans-serif" font-size="7" font-weight="600" fill="#ffffff" text-anchor="middle">Responses</text>
+    <!-- Arrow -->
+    <line x1="0" y1="15" x2="40" y2="15" stroke="#ef4444" stroke-width="2"/>
+    <polygon points="40,15 30,9 30,21" fill="#ef4444"/>
+  </g>
+
+  <!-- ELEMENT 4: Structural Fidelity Analysis -->
+  <g transform="translate(800, 35)">
+    <!-- Box -->
+    <rect x="0" y="0" width="210" height="250" rx="8" ry="8" fill="#fef3f2" stroke="#ef4444" stroke-width="1.5"/>
+
+    <!-- Label -->
+    <text x="105" y="20" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" fill="#374151" text-anchor="middle">Structural fidelity</text>
+    <text x="105" y="33" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle" font-style="italic">(Illustration only; see Figure 3 for the acutal data)</text>
+
+    <!-- Visual comparison matrices -->
+    <rect x="17" y="45" width="176" height="160" rx="4" ry="4" fill="#ffffff" stroke="#fecaca" stroke-width="1"/>
+
+    <!-- Human side -->
+    <text x="63" y="62" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#374151" font-weight="600" text-anchor="middle">Human</text>
+
+    <!-- Question labels for human -->
+    <text x="35" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q1</text>
+    <text x="46" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q2</text>
+    <text x="57" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q3</text>
+    <text x="68" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q4</text>
+    <text x="79" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q5</text>
+    <text x="90" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q6</text>
+
+    <!-- Human matrix (7 philosophers × 6 questions) - diverse colors -->
+    <!-- P1 -->
+    <circle cx="35" cy="86" r="3.5" fill="#dc2626"/>
+    <circle cx="46" cy="86" r="3.5" fill="#60a5fa"/>
+    <circle cx="57" cy="86" r="3.5" fill="#f87171"/>
+    <circle cx="68" cy="86" r="3.5" fill="#93c5fd"/>
+    <circle cx="79" cy="86" r="3.5" fill="#3b82f6"/>
+    <circle cx="90" cy="86" r="3.5" fill="#ef4444"/>
+
+    <!-- P2 -->
+    <circle cx="35" cy="96" r="3.5" fill="#3b82f6"/>
+    <circle cx="46" cy="96" r="3.5" fill="#f87171"/>
+    <circle cx="57" cy="96" r="3.5" fill="#2563eb"/>
+    <circle cx="68" cy="96" r="3.5" fill="#fca5a5"/>
+    <circle cx="79" cy="96" r="3.5" fill="#dc2626"/>
+    <circle cx="90" cy="96" r="3.5" fill="#60a5fa"/>
+
+    <!-- P3 -->
+    <circle cx="35" cy="106" r="3.5" fill="#f87171"/>
+    <circle cx="46" cy="106" r="3.5" fill="#2563eb"/>
+    <circle cx="57" cy="106" r="3.5" fill="#60a5fa"/>
+    <circle cx="68" cy="106" r="3.5" fill="#dc2626"/>
+    <circle cx="79" cy="106" r="3.5" fill="#93c5fd"/>
+    <circle cx="90" cy="106" r="3.5" fill="#3b82f6"/>
+
+    <!-- P4 -->
+    <circle cx="35" cy="116" r="3.5" fill="#2563eb"/>
+    <circle cx="46" cy="116" r="3.5" fill="#dc2626"/>
+    <circle cx="57" cy="116" r="3.5" fill="#93c5fd"/>
+    <circle cx="68" cy="116" r="3.5" fill="#3b82f6"/>
+    <circle cx="79" cy="116" r="3.5" fill="#f87171"/>
+    <circle cx="90" cy="116" r="3.5" fill="#fca5a5"/>
+
+    <!-- P5 -->
+    <circle cx="35" cy="126" r="3.5" fill="#60a5fa"/>
+    <circle cx="46" cy="126" r="3.5" fill="#3b82f6"/>
+    <circle cx="57" cy="126" r="3.5" fill="#dc2626"/>
+    <circle cx="68" cy="126" r="3.5" fill="#93c5fd"/>
+    <circle cx="79" cy="126" r="3.5" fill="#2563eb"/>
+    <circle cx="90" cy="126" r="3.5" fill="#dc2626"/>
+
+    <!-- P6 -->
+    <circle cx="35" cy="136" r="3.5" fill="#93c5fd"/>
+    <circle cx="46" cy="136" r="3.5" fill="#60a5fa"/>
+    <circle cx="57" cy="136" r="3.5" fill="#3b82f6"/>
+    <circle cx="68" cy="136" r="3.5" fill="#f87171"/>
+    <circle cx="79" cy="136" r="3.5" fill="#60a5fa"/>
+    <circle cx="90" cy="136" r="3.5" fill="#2563eb"/>
+
+    <!-- P7 -->
+    <circle cx="35" cy="146" r="3.5" fill="#ef4444"/>
+    <circle cx="46" cy="146" r="3.5" fill="#93c5fd"/>
+    <circle cx="57" cy="146" r="3.5" fill="#fca5a5"/>
+    <circle cx="68" cy="146" r="3.5" fill="#2563eb"/>
+    <circle cx="79" cy="146" r="3.5" fill="#fca5a5"/>
+    <circle cx="90" cy="146" r="3.5" fill="#93c5fd"/>
+
+    <!-- Philosopher labels (outside box, aligned with dots) -->
+    <text x="15" y="89" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="end">P1</text>
+    <text x="15" y="99" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="end">P2</text>
+    <text x="15" y="109" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="end">P3</text>
+    <text x="15" y="119" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="end">P4</text>
+    <text x="15" y="129" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="end">P5</text>
+    <text x="15" y="139" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="end">P6</text>
+    <text x="15" y="149" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="end">P7</text>
+
+    <!-- Divider -->
+    <line x1="103" y1="52" x2="103" y2="152" stroke="#fecaca" stroke-width="1"/>
+
+    <!-- LLM side -->
+    <text x="153" y="62" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#374151" font-weight="600" text-anchor="middle">LLM</text>
+
+    <!-- Question labels for LLM -->
+    <text x="125" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q1</text>
+    <text x="136" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q2</text>
+    <text x="147" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q3</text>
+    <text x="158" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q4</text>
+    <text x="169" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q5</text>
+    <text x="180" y="76" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#9ca3af" text-anchor="middle">Q6</text>
+
+    <!-- LLM matrix (7 philosophers × 6 questions) - uniform per column with more variation -->
+    <!-- Q1: mostly blue with varied shades -->
+    <circle cx="125" cy="86" r="3.5" fill="#3b82f6"/>
+    <circle cx="125" cy="96" r="3.5" fill="#60a5fa"/>
+    <circle cx="125" cy="106" r="3.5" fill="#2563eb"/>
+    <circle cx="125" cy="116" r="3.5" fill="#3b82f6"/>
+    <circle cx="125" cy="126" r="3.5" fill="#60a5fa"/>
+    <circle cx="125" cy="136" r="3.5" fill="#1d4ed8"/>
+    <circle cx="125" cy="146" r="3.5" fill="#93c5fd"/>
+
+    <!-- Q2: mostly red with varied shades -->
+    <circle cx="136" cy="86" r="3.5" fill="#dc2626"/>
+    <circle cx="136" cy="96" r="3.5" fill="#ef4444"/>
+    <circle cx="136" cy="106" r="3.5" fill="#f87171"/>
+    <circle cx="136" cy="116" r="3.5" fill="#dc2626"/>
+    <circle cx="136" cy="126" r="3.5" fill="#fca5a5"/>
+    <circle cx="136" cy="136" r="3.5" fill="#ef4444"/>
+    <circle cx="136" cy="146" r="3.5" fill="#dc2626"/>
+
+    <!-- Q3: mostly light blue with more variation -->
+    <circle cx="147" cy="86" r="3.5" fill="#93c5fd"/>
+    <circle cx="147" cy="96" r="3.5" fill="#bfdbfe"/>
+    <circle cx="147" cy="106" r="3.5" fill="#60a5fa"/>
+    <circle cx="147" cy="116" r="3.5" fill="#93c5fd"/>
+    <circle cx="147" cy="126" r="3.5" fill="#3b82f6"/>
+    <circle cx="147" cy="136" r="3.5" fill="#93c5fd"/>
+    <circle cx="147" cy="146" r="3.5" fill="#60a5fa"/>
+
+    <!-- Q4: mostly dark blue with variation -->
+    <circle cx="158" cy="86" r="3.5" fill="#2563eb"/>
+    <circle cx="158" cy="96" r="3.5" fill="#3b82f6"/>
+    <circle cx="158" cy="106" r="3.5" fill="#1d4ed8"/>
+    <circle cx="158" cy="116" r="3.5" fill="#2563eb"/>
+    <circle cx="158" cy="126" r="3.5" fill="#60a5fa"/>
+    <circle cx="158" cy="136" r="3.5" fill="#2563eb"/>
+    <circle cx="158" cy="146" r="3.5" fill="#3b82f6"/>
+
+    <!-- Q5: mostly light red with variation -->
+    <circle cx="169" cy="86" r="3.5" fill="#f87171"/>
+    <circle cx="169" cy="96" r="3.5" fill="#fca5a5"/>
+    <circle cx="169" cy="106" r="3.5" fill="#ef4444"/>
+    <circle cx="169" cy="116" r="3.5" fill="#f87171"/>
+    <circle cx="169" cy="126" r="3.5" fill="#fca5a5"/>
+    <circle cx="169" cy="136" r="3.5" fill="#dc2626"/>
+    <circle cx="169" cy="146" r="3.5" fill="#f87171"/>
+
+    <!-- Q6: mostly medium blue with variation -->
+    <circle cx="180" cy="86" r="3.5" fill="#60a5fa"/>
+    <circle cx="180" cy="96" r="3.5" fill="#93c5fd"/>
+    <circle cx="180" cy="106" r="3.5" fill="#3b82f6"/>
+    <circle cx="180" cy="116" r="3.5" fill="#60a5fa"/>
+    <circle cx="180" cy="126" r="3.5" fill="#2563eb"/>
+    <circle cx="180" cy="136" r="3.5" fill="#93c5fd"/>
+    <circle cx="180" cy="146" r="3.5" fill="#60a5fa"/>
+
+    <!-- Bottom summary -->
+    <text x="63" y="165" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#22c55e" text-anchor="middle" font-weight="600">more diverse</text>
+    <text x="153" y="165" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="600">more uniform</text>
+
+    <!-- Spectrum Legend (horizontal, centered) -->
+    <g transform="translate(105, 180)">
+      <!-- Gradient bar -->
+      <defs>
+        <linearGradient id="responseGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#93c5fd;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <rect x="-40" y="0" width="80" height="9" fill="url(#responseGradient)" stroke="#d1d5db" stroke-width="0.5"/>
+
+      <!-- Labels -->
+      <text x="-40" y="-3" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#6b7280" text-anchor="start">Reject</text>
+      <text x="40" y="-3" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#6b7280" text-anchor="end">Accept</text>
+    </g>
+
+    <text x="105" y="225" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" fill="#9ca3af" text-anchor="middle" font-style="italic">Heterogeneity collapse in LLMs</text>
+  </g>
+
+</svg>

@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 320" width="1220" height="320">
+
+  <!-- Background -->
+  <rect width="1220" height="320" fill="#ffffff"/>
+
+  <!-- STEP 1: Data Sources -->
+  <g transform="translate(20, 35)">
+    <!-- Box -->
+    <rect x="0" y="0" width="200" height="250" rx="8" ry="8" fill="#fef3f2" stroke="#ef4444" stroke-width="1.5"/>
+
+    <!-- Label -->
+    <text x="100" y="24" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="600" fill="#374151" text-anchor="middle">Data Sources</text>
+
+    <!-- Database icon -->
+    <g transform="translate(75, 38)">
+      <ellipse cx="25" cy="15" rx="20" ry="7" fill="#ef4444"/>
+      <rect x="5" y="15" width="40" height="25" fill="#ef4444"/>
+      <ellipse cx="25" cy="40" rx="20" ry="7" fill="#ef4444"/>
+      <ellipse cx="25" cy="15" rx="20" ry="7" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    </g>
+
+    <!-- Content box -->
+    <rect x="12" y="90" width="176" height="145" rx="4" ry="4" fill="#ffffff" stroke="#fecaca" stroke-width="1"/>
+
+    <!-- Content text -->
+    <text x="100" y="110" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">PhilPeople.org</text>
+    <text x="100" y="125" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">Philosopher Profiles</text>
+
+    <line x1="30" y1="140" x2="170" y2="140" stroke="#fecaca" stroke-width="1"/>
+
+    <text x="100" y="158" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">PhilPapers Survey</text>
+    <text x="100" y="173" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">Survey Responses</text>
+
+    <line x1="30" y1="188" x2="170" y2="188" stroke="#fecaca" stroke-width="1"/>
+
+    <text x="100" y="206" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle" font-style="italic">Demographics</text>
+    <text x="100" y="220" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle" font-style="italic">Survey Questions</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g transform="translate(230, 145)">
+    <line x1="0" y1="15" x2="30" y2="15" stroke="#94a3b8" stroke-width="2"/>
+    <polygon points="30,15 20,9 20,21" fill="#94a3b8"/>
+  </g>
+
+  <!-- STEP 2: Data Collection -->
+  <g transform="translate(270, 35)">
+    <!-- Box -->
+    <rect x="0" y="0" width="200" height="250" rx="8" ry="8" fill="#f8fafa" stroke="#94a3b8" stroke-width="1.5"/>
+
+    <!-- Label -->
+    <text x="100" y="24" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="600" fill="#374151" text-anchor="middle">Data Collection</text>
+
+    <!-- Browser/scraping icon -->
+    <g transform="translate(75, 38)">
+      <rect x="10" y="5" width="30" height="25" rx="3" ry="3" fill="#94a3b8"/>
+      <rect x="10" y="5" width="30" height="7" rx="3" ry="0" fill="#64748b"/>
+      <circle cx="14" cy="8.5" r="1.5" fill="#ffffff"/>
+      <circle cx="19" cy="8.5" r="1.5" fill="#ffffff"/>
+      <circle cx="24" cy="8.5" r="1.5" fill="#ffffff"/>
+    </g>
+
+    <!-- Content box -->
+    <rect x="12" y="75" width="176" height="160" rx="4" ry="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+
+    <!-- Content -->
+    <text x="100" y="96" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">Web Scraping</text>
+    <text x="100" y="113" font-family="Courier New, monospace" font-size="8.5" fill="#6b7280" text-anchor="middle">Selenium WebDriver</text>
+
+    <line x1="30" y1="125" x2="170" y2="125" stroke="#cbd5e1" stroke-width="1"/>
+
+    <text x="100" y="143" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">• Profile Demographics</text>
+    <text x="100" y="160" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">• Survey Responses</text>
+    <text x="100" y="177" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">• Question Options</text>
+
+    <line x1="30" y1="192" x2="170" y2="192" stroke="#cbd5e1" stroke-width="1"/>
+
+    <text x="100" y="210" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle" font-style="italic">HTML Parsing</text>
+    <text x="100" y="224" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle" font-style="italic">Data Extraction</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g transform="translate(480, 145)">
+    <line x1="0" y1="15" x2="30" y2="15" stroke="#f59e0b" stroke-width="2"/>
+    <polygon points="30,15 20,9 20,21" fill="#f59e0b"/>
+  </g>
+
+  <!-- STEP 3: Data Processing -->
+  <g transform="translate(520, 35)">
+    <!-- Box -->
+    <rect x="0" y="0" width="200" height="250" rx="8" ry="8" fill="#fefce8" stroke="#f59e0b" stroke-width="1.5"/>
+
+    <!-- Label -->
+    <text x="100" y="24" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="600" fill="#374151" text-anchor="middle">Data Processing</text>
+
+    <!-- Gear icon -->
+    <g transform="translate(85, 43)">
+      <circle cx="15" cy="15" r="10" fill="none" stroke="#f59e0b" stroke-width="2"/>
+      <circle cx="15" cy="15" r="5" fill="#f59e0b"/>
+      <rect x="13" y="5" width="4" height="4" fill="#f59e0b"/>
+      <rect x="13" y="21" width="4" height="4" fill="#f59e0b"/>
+      <rect x="5" y="13" width="4" height="4" fill="#f59e0b"/>
+      <rect x="21" y="13" width="4" height="4" fill="#f59e0b"/>
+    </g>
+
+    <!-- Content box -->
+    <rect x="12" y="75" width="176" height="160" rx="4" ry="4" fill="#ffffff" stroke="#fde68a" stroke-width="1"/>
+
+    <!-- Content -->
+    <text x="100" y="96" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="600" fill="#374151" text-anchor="middle">Merge &amp; Normalize</text>
+
+    <text x="100" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">• Profile Merging</text>
+    <text x="100" y="132" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">• Response Normalization</text>
+    <text x="100" y="149" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">• Data Validation</text>
+
+    <line x1="30" y1="164" x2="170" y2="164" stroke="#fde68a" stroke-width="1"/>
+
+    <text x="100" y="182" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle" font-style="italic">Question-Answer Matrix</text>
+    <text x="100" y="196" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle" font-style="italic">Demographic Features</text>
+    <text x="100" y="210" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#9ca3af" text-anchor="middle" font-style="italic">Response Mapping</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <g transform="translate(730, 145)">
+    <line x1="0" y1="15" x2="30" y2="15" stroke="#0d9488" stroke-width="2"/>
+    <polygon points="30,15 20,9 20,21" fill="#0d9488"/>
+  </g>
+
+  <!-- STEP 4: LLM Evaluation -->
+  <g transform="translate(770, 35)">
+    <!-- Box -->
+    <rect x="0" y="0" width="200" height="250" rx="8" ry="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+
+    <!-- Label -->
+    <text x="100" y="24" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="600" fill="#374151" text-anchor="middle">LLM Evaluation</text>
+
+    <!-- Robot/AI icon -->
+    <g transform="translate(80, 38)">
+      <rect x="15" y="8" width="20" height="20" rx="3" ry="3" fill="#0d9488"/>
+      <circle cx="21" cy="16" r="2" fill="#ffffff"/>
+      <circle cx="29" cy="16" r="2" fill="#ffffff"/>
+      <line x1="25" y1="8" x2="25" y2="3" stroke="#0d9488" stroke-width="2"/>
+      <circle cx="25" cy="3" r="2" fill="#0d9488"/>
+      <rect x="12" y="30" width="26" height="12" rx="2" ry="2" fill="#0d9488"/>
+    </g>
+
+    <!-- Content box -->
+    <rect x="12" y="75" width="176" height="160" rx="4" ry="4" fill="#ffffff" stroke="#99f6e4" stroke-width="1"/>
+
+    <!-- Content -->
+    <text x="100" y="94" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#374151" text-anchor="middle">Commercial Models:</text>
+    <text x="100" y="109" font-family="Courier New, monospace" font-size="8" fill="#0d9488" text-anchor="middle">GPT-5.1, GPT-4o, Claude Sonnet 4.5</text>
+
+    <line x1="30" y1="120" x2="170" y2="120" stroke="#99f6e4" stroke-width="1"/>
+
+    <text x="100" y="136" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#374151" text-anchor="middle">Open Models:</text>
+    <text x="100" y="151" font-family="Courier New, monospace" font-size="8" fill="#0d9488" text-anchor="middle">Llama 3.1 8B, Mistral 7B</text>
+    <text x="100" y="164" font-family="Courier New, monospace" font-size="8" fill="#0d9488" text-anchor="middle">Qwen 2.5 (0.5B-4B)</text>
+
+    <line x1="30" y1="177" x2="170" y2="177" stroke="#99f6e4" stroke-width="1"/>
+
+    <text x="100" y="193" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#374151" text-anchor="middle">Fine-tuning:</text>
+    <text x="100" y="208" font-family="Courier New, monospace" font-size="8" fill="#6b7280" text-anchor="middle">DPO + LoRA Adapter</text>
+    <text x="100" y="223" font-family="Courier New, monospace" font-size="8" fill="#6b7280" text-anchor="middle">Philosopher Conditioning</text>
+  </g>
+
+  <!-- Arrow 4 -->
+  <g transform="translate(980, 145)">
+    <line x1="0" y1="15" x2="30" y2="15" stroke="#ef4444" stroke-width="2"/>
+    <polygon points="30,15 20,9 20,21" fill="#ef4444"/>
+  </g>
+
+  <!-- STEP 5: Analysis -->
+  <g transform="translate(1020, 35)">
+    <!-- Box -->
+    <rect x="0" y="0" width="180" height="250" rx="8" ry="8" fill="#fef3f2" stroke="#ef4444" stroke-width="1.5"/>
+
+    <!-- Label -->
+    <text x="90" y="24" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="600" fill="#374151" text-anchor="middle">Analysis</text>
+
+    <!-- Chart icon -->
+    <g transform="translate(60, 38)">
+      <rect x="5" y="20" width="6" height="22" fill="#ef4444"/>
+      <rect x="14" y="12" width="6" height="30" fill="#ef4444"/>
+      <rect x="23" y="15" width="6" height="27" fill="#ef4444"/>
+      <rect x="32" y="8" width="6" height="34" fill="#ef4444"/>
+    </g>
+
+    <!-- Content box -->
+    <rect x="10" y="75" width="160" height="160" rx="4" ry="4" fill="#ffffff" stroke="#fecaca" stroke-width="1"/>
+
+    <!-- Content -->
+    <text x="90" y="94" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#374151" text-anchor="middle">Quality Metrics</text>
+    <text x="90" y="108" font-family="Courier New, monospace" font-size="8" fill="#6b7280" text-anchor="middle">Entropy, KL-JS</text>
+
+    <line x1="20" y1="118" x2="160" y2="118" stroke="#fecaca" stroke-width="1"/>
+
+    <text x="90" y="132" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#374151" text-anchor="middle">Matrix Similarity</text>
+    <text x="90" y="146" font-family="Courier New, monospace" font-size="8" fill="#6b7280" text-anchor="middle">Mantel, RV Coef</text>
+
+    <line x1="20" y1="156" x2="160" y2="156" stroke="#fecaca" stroke-width="1"/>
+
+    <text x="90" y="170" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#374151" text-anchor="middle">Correlation</text>
+    <text x="90" y="184" font-family="Courier New, monospace" font-size="8" fill="#6b7280" text-anchor="middle">Demographic</text>
+
+    <line x1="20" y1="194" x2="160" y2="194" stroke="#fecaca" stroke-width="1"/>
+
+    <text x="90" y="208" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="600" fill="#374151" text-anchor="middle">PCA Analysis</text>
+    <text x="90" y="222" font-family="Courier New, monospace" font-size="8" fill="#6b7280" text-anchor="middle">Heterogeneity</text>
+  </g>
+
+</svg>

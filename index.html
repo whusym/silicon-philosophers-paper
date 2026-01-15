@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Collapse of Heterogeneity in Silicon Philosophers - Research on how LLMs systematically collapse philosophical disagreement">
+    <meta name="keywords" content="LLM, silicon sampling, algorithmic fidelity, philosophy, AI alignment">
+    <title>The Collapse of Heterogeneity in Silicon Philosophers</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>The Collapse of Heterogeneity in Silicon Philosophers</h1>
+            <p class="subtitle">How Large Language Models Systematically Reduce Philosophical Disagreement</p>
+            <div class="authors">
+                <span class="author">Yuanming Shi<sup>1</sup></span>
+                <span class="author">Andreas Haupt<sup>2</sup></span>
+            </div>
+            <div class="affiliations">
+                <span><sup>1</sup>Adobe Inc.</span>
+                <span><sup>2</sup>Stanford University</span>
+            </div>
+            <div class="links">
+                <a href="assets/paper.pdf" class="btn btn-primary" target="_blank">📄 Full Paper (PDF)</a>
+                <a href="#" class="btn btn-secondary" id="code-btn">💻 Code & Data</a>
+                <a href="#about" class="btn btn-secondary">ℹ️ About This Work</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Abstract -->
+        <section id="abstract">
+            <h2>Abstract</h2>
+            <p>
+                <strong>Silicon sampling</strong>—using large language models (LLMs) to simulate human responses—has emerged as a promising tool for social science research. However, we show that in the alignment-relevant domain of philosophy, silicon samples <strong>systematically collapse heterogeneity</strong>.
+            </p>
+            <p>
+                Using data from <strong>N=277 professional philosophers</strong> and evaluating seven LLMs, we find that language models:
+            </p>
+            <ul>
+                <li>Produce <strong>1.4–2.4× lower variance</strong> than human philosophers</li>
+                <li><strong>Over-correlate philosophical judgments</strong>, creating artificial consensus</li>
+                <li>Exhibit <strong>spurious specialist effects</strong>, assuming domain experts hold stereotypically aligned views</li>
+                <li>Organize disagreement along <strong>fundamentally different axes</strong> than humans</li>
+            </ul>
+            <p>
+                These findings suggest current LLMs may be unsuitable for value elicitation or alignment applications requiring faithful representation of philosophical diversity.
+            </p>
+        </section>
+
+        <!-- Silicon Sampling Workflow -->
+        <section id="workflow">
+            <h2>Silicon Sampling Workflow</h2>
+            <img src="assets/figures/silicon_sampling_pipeline.svg" alt="Silicon Sampling Workflow" class="result-img-medium">
+            <p class="figure-caption">
+                <strong>Figure 1:</strong> Silicon sampling workflow illustrated through four stages: (1) Profile conditioning with philosopher demographics,
+                (2) Survey question presentation, (3) Response coding to normalized scores, and (4) Structural fidelity analysis showing
+                LLM responses have less heterogeneity than human responses.
+            </p>
+        </section>
+
+        <!-- Method Overview -->
+        <section id="method">
+            <h2>Methodology</h2>
+            <div class="method-container">
+                <img src="assets/figures/step-pipeline.svg" alt="Experimental Pipeline" class="pipeline-img">
+                <div class="method-description">
+                    <h3>Five-Stage Experimental Pipeline</h3>
+                    <ol>
+                        <li><strong>Data Sources:</strong> 277 philosopher profiles from PhilPeople.org with demographics and specializations</li>
+                        <li><strong>Data Collection:</strong> Web scraping using Selenium to extract survey responses from PhilPapers</li>
+                        <li><strong>Data Processing:</strong> Merging profiles with responses, normalizing to [0,1] scale</li>
+                        <li><strong>LLM Evaluation:</strong> Testing 7 models (commercial + open-source) with DPO fine-tuning</li>
+                        <li><strong>Analysis:</strong> Entropy, KL-divergence, PCA, correlation structure, and demographic prediction</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Results -->
+        <section id="results">
+            <h2>Key Findings</h2>
+
+            <div class="result-section">
+                <h3>1. Heterogeneity Collapse</h3>
+                <p><strong>LLMs show 1.6-3.0× lower within-group variance than humans</strong> across 64 exact-match philosophical questions.</p>
+                <p>Based on ultra-conservative comparison using only questions with exact string matches across all 8 datasets (Human + 7 LLMs), including 12 clean binary pairs with position inversion.</p>
+            </div>
+
+            <div class="result-section">
+                <h3>2. Response Pattern Visualization (8-Panel Comparison from Appendix)</h3>
+                <p>
+                    <a href="assets/figures/figure1_8panel_bc.pdf" target="_blank" style="font-size: 0.9em; float: right;">[Download PDF]</a>
+                    Visual comparison showing how humans and seven LLMs respond across all questions.
+                    Note the distinct patterns: humans show diverse strong positions (red/blue), while GPT-4o, GPT-5.1, and Qwen 3 4B cluster around hedged responses (yellow/green).
+                </p>
+                <img src="assets/figures/figure1_8panel_bc.png" alt="8-panel response matrix comparison" class="result-img-contained" style="max-width: 100%; margin-top: 1em;">
+            </div>
+
+            <div class="result-section">
+                <h3>3. Model Hedging Behavior</h3>
+                <p><strong>GPT-4o, GPT-5.1, and Qwen 3 4B exhibit extreme hedging:</strong></p>
+                <ul>
+                    <li><strong>Humans:</strong> 44.8% Accept, 41.6% Lean toward → balanced confidence</li>
+                    <li><strong>GPT-4o/5.1:</strong> ~4.5% Accept, ~78% Lean toward → 20× more hedging</li>
+                    <li><strong>Qwen 3 4B:</strong> 2.2% Accept, 76.3% Lean toward → extreme caution</li>
+                </ul>
+                <p style="margin-top: 0.5em;">
+                    <em>All models received identical prompts. This hedging pattern reflects RLHF/safety training,
+                    not data quality issues. It contributes to variance collapse by clustering responses around "lean toward" (0.75)
+                    rather than spreading across strong positions.</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- Interactive Data Exploration -->
+        <section id="data-exploration">
+            <h2>Interactive Data Exploration</h2>
+            <p>Explore the quantitative evidence of heterogeneity collapse across models and philosophical domains.</p>
+
+            <div class="viz-container">
+                <h3>Per-Question Response Distribution</h3>
+                <p class="viz-description">
+                    <strong>Select a philosophical question</strong> to see the statistical distribution across Human and all 7 LLMs.
+                    <br><br>
+                    <strong>This visualization shows:</strong>
+                    <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+                        <li><strong>Number above each column:</strong> Sample size (total philosophers who answered this question)</li>
+                        <li><strong>Box (colored rectangle):</strong> Interquartile range (IQR) - middle 50% of responses from 25th percentile (Q1, bottom) to 75th percentile (Q3, top)</li>
+                        <li><strong>Line inside box:</strong> Median (50th percentile, Q2)</li>
+                        <li><strong>Whiskers (vertical lines):</strong> Extend to minimum (bottom) and maximum (top) values</li>
+                        <li><strong>Gold diamond (◆):</strong> Mean (average) response. Hover over this icon to see the total sample size also. </li>
+                        <li><strong>Colors:</strong> Red = Human philosophers (wider spread = genuine disagreement), Blue = LLMs (narrow spread = artificial consensus)</li>
+                    </ul>
+                    Notice how Human responses show wider boxes and longer whiskers, while LLM responses show narrow ranges, demonstrating heterogeneity collapse.
+                </p>
+                <div class="question-selector">
+                    <label for="question-select">Select Question:</label>
+                    <select id="question-select">
+                        <option value="">Loading questions...</option>
+                    </select>
+                </div>
+                <div id="per-question-viz"></div>
+            </div>
+
+            <div class="viz-container">
+                <h3>Per-Question Variance Across Models</h3>
+                <p class="viz-description">Compare how much disagreement (variance) each model produces per question. Human philosophers show 0.062 variance; all LLMs show dramatically lower values (0.026-0.043).</p>
+                <div id="variance-viz"></div>
+            </div>
+
+            <div class="viz-container">
+                <h3>Domain-Level Heterogeneity Heatmap</h3>
+                <p class="viz-description">Explore variance across 14 philosophical domains. Darker colors indicate higher disagreement. Hover over cells to see exact values.</p>
+                <div id="domain-viz"></div>
+            </div>
+        </section>
+
+        <!-- Table 3: Specialist Effects -->
+        <section id="specialist-effects">
+            <h2>Spurious Specialist Effects</h2>
+            <p>LLMs systematically predict that domain specialists will hold stereotypically aligned philosophical views, far exceeding what ground truth shows:</p>
+
+            <div class="table-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Specialist Effect</th>
+                            <th>Ground Truth<br>(N=277)</th>
+                            <th>GT Sig</th>
+                            <th>LLM Avg<br>Prediction</th>
+                            <th>Significant<br>Models</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Phil. Biology → Personal identity: biological</td>
+                            <td>+11.4 pp</td>
+                            <td>n.s.</td>
+                            <td><strong>+43 pp</strong></td>
+                            <td>4/7***</td>
+                        </tr>
+                        <tr>
+                            <td>Phil. Biology → Personal identity: psychological</td>
+                            <td>+4.1 pp</td>
+                            <td>n.s.</td>
+                            <td><strong>-65.7 pp</strong></td>
+                            <td>3/7***</td>
+                        </tr>
+                        <tr>
+                            <td>Ancient Phil. → Practical reason: Aristotelian</td>
+                            <td>+1.9 pp</td>
+                            <td>n.s.</td>
+                            <td><strong>+68.9 pp</strong></td>
+                            <td>7/7***</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note">
+                <strong>Note:</strong> ***p&lt;0.001 for LLM predictions (χ² tests). Ground truth shows no significant effects,
+                but LLMs predict highly significant associations—suggesting demographic labels serve as "high-precision anchors"
+                for stereotypical stances rather than capturing nuanced expert disagreement.
+            </p>
+        </section>
+
+        <!-- Implications -->
+        <section id="implications">
+            <h2>Implications for AI Alignment</h2>
+
+            <div class="implications-grid">
+                <div class="implication-card">
+                    <h3>🎯 No Expert Consensus</h3>
+                    <p>Professional philosophers exhibit substantial disagreement on fundamental questions.
+                    There is no unified "expert consensus" for alignment to converge upon.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h3>⚠️ Artificial Consensus</h3>
+                    <p>LLMs collapse genuine philosophical disagreement into artificial consensus,
+                    potentially imposing uniform values where diversity should exist.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h3>🔍 Wrong Dimensions</h3>
+                    <p>LLMs organize disagreement along fundamentally different axes than humans,
+                    suggesting they misunderstand the structure of philosophical worldviews.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h3>📊 Unsuitable for Value Elicitation</h3>
+                    <p>Current LLMs may be inappropriate for value alignment applications requiring
+                    faithful representation of philosophical diversity and expert disagreement.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About This Work -->
+        <section id="about">
+            <h2>About This Work</h2>
+            <div class="about-content">
+                <div class="about-box">
+                    <h3>📄 Paper Status</h3>
+                    <p>
+                        This paper is currently <strong>under review</strong>. For access to the full paper,
+                        please contact the authors directly.
+                    </p>
+                </div>
+
+                <div class="about-box">
+                    <h3>🎓 Course Project Extension</h3>
+                    <p>
+                        This research originated as a course project for <strong>CS329H: Human-Centered Natural Language Processing</strong>,
+                        taught during Fall Quarter 2025 at Stanford University. The project has been extended into a full
+                        research paper exploring the fundamental limitations of silicon sampling in expert domains.
+                    </p>
+                </div>
+
+                <div class="about-box">
+                    <h3>💡 How to Cite</h3>
+                    <p>
+                        As this work is under review, please contact the authors for citation information.
+                        A BibTeX entry will be provided upon publication.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Contact & Collaboration</h2>
+            <p>For questions or collaboration inquiries, please contact:</p>
+            <ul class="contact-list">
+                <li><strong>Yuanming Shi</strong> (Adobe Inc.): <a href="mailto:jeremyshi@adobe.com">jeremyshi@adobe.com</a></li>
+                <li><strong>Andreas Haupt</strong> (Stanford University): <a href="mailto:h4upt@stanford.edu">h4upt@stanford.edu</a> | <a href="https://www.andyhaupt.com/" target="_blank">Website</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Yuanming Shi and Andreas Haupt. All rights reserved.</p>
+            <p>Research originated from CS329H (Stanford University, Fall 2025) | Paper under review</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
