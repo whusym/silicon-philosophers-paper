@@ -216,29 +216,29 @@ function initializeVisualizations() {
             }
         });
 
-        // Box plot showing mean, quartiles, min/max
+        // Horizontal box plot showing mean, quartiles, min/max
         const spec = {
             "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
             "title": `Response Distribution: ${qData.base_question}: ${qData.position}`,
             "width": "container",
-            "height": 400,
+            "height": 350,
             "layer": [
                 {
-                    // Box plot (quartiles, min, max)
+                    // Box plot (quartiles, min, max) — horizontal
                     "data": {"values": vizData},
                     "mark": {
                         "type": "boxplot",
                         "extent": "min-max",
-                        "size": 60
+                        "size": 25
                     },
                     "encoding": {
-                        "x": {
+                        "y": {
                             "field": "model",
                             "type": "nominal",
-                            "axis": {"title": "Source", "labelAngle": -45},
+                            "axis": {"title": null},
                             "sort": modelOrder
                         },
-                        "y": {
+                        "x": {
                             "field": "response",
                             "type": "quantitative",
                             "axis": {"title": "Response Score", "grid": true},
@@ -264,12 +264,12 @@ function initializeVisualizations() {
                         "filled": true
                     },
                     "encoding": {
-                        "x": {
+                        "y": {
                             "field": "model",
                             "type": "nominal",
                             "sort": modelOrder
                         },
-                        "y": {
+                        "x": {
                             "field": "mean",
                             "type": "quantitative"
                         },

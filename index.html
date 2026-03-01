@@ -82,6 +82,16 @@
                     </ol>
                 </div>
             </div>
+            <div class="method-note">
+                <h4>Response Normalization</h4>
+                <p>
+                    Philosopher responses (Accept, Lean toward, Agnostic, Lean against, Reject) are coded to a [0,&nbsp;1] scale:
+                    Reject&nbsp;=&nbsp;0.0, Lean against&nbsp;=&nbsp;0.25, Agnostic&nbsp;=&nbsp;0.5, Lean toward&nbsp;=&nbsp;0.75, Accept&nbsp;=&nbsp;1.0.
+                    For questions with clearly invertible options (e.g., yes/no, permissible/impermissible), we invert the negative side so that all responses are expressed in terms of the positive option.
+                    For non-binary questions with multiple options, we follow <a href="https://philpapers.org/rec/BOUWDP" target="_blank">Bourget &amp; Chalmers (2023)</a> and select the option with the highest response count.
+                    Missing values are excluded pairwise&mdash;no imputation is performed.
+                </p>
+            </div>
         </section>
 
         <!-- Main Results -->
@@ -123,7 +133,7 @@
                         <li><strong>Gold diamond (◆):</strong> Mean (average) response. Hover over this icon to see the total sample size also. </li>
                         <li><strong>Colors:</strong> Red = Human philosophers (wider spread = genuine disagreement), Blue = LLMs (narrow spread = artificial consensus)</li>
                     </ul>
-                    Notice how Human responses show wider boxes and longer whiskers, while LLM responses show narrow ranges, demonstrating heterogeneity collapse.
+                    Notice how the Human row shows a wider box and longer whiskers, while LLM rows show narrow boxes, demonstrating heterogeneity collapse.
                 </p>
                 <div class="question-selector">
                     <label for="question-select">Select Question:</label>
