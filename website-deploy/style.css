@@ -331,6 +331,112 @@ li {
     margin: 0;
 }
 
+/* Model Selector & Question Selector */
+.model-selector,
+.question-selector {
+    margin-bottom: 1.5rem;
+}
+
+.model-selector label,
+.question-selector label {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-right: 1rem;
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+#model-select,
+#question-select {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    background: white;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    min-width: 300px;
+    max-width: 100%;
+}
+
+#model-select:hover,
+#question-select:hover {
+    border-color: var(--primary-color);
+}
+
+#model-select:focus,
+#question-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Static Figure Toggle */
+.static-figure-toggle {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+}
+
+.static-figure-toggle summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    user-select: none;
+}
+
+.static-figure-toggle summary:hover {
+    text-decoration: underline;
+}
+
+.static-figure-toggle[open] summary {
+    margin-bottom: 1rem;
+}
+
+/* Interactive Data Exploration */
+#data-exploration {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 4rem;
+}
+
+.viz-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.viz-container h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+}
+
+.viz-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+#variance-viz,
+#domain-viz,
+#response-matrix-viz {
+    min-height: 400px;
+    width: 100%;
+}
+
+#per-question-viz {
+    min-height: 450px;
+    width: 100%;
+}
+
 /* About This Work Section */
 .about-content {
     display: grid;
