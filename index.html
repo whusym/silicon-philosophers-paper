@@ -45,7 +45,7 @@
                 Using data from <strong>N=277 professional philosophers</strong> and evaluating seven LLMs, we find that language models:
             </p>
             <ul>
-                <li>Produce <strong>1.4–2.4× lower variance</strong> than human philosophers</li>
+                <li>Produce <strong>1.8–3.6× lower variance</strong> than human philosophers</li>
                 <li><strong>Over-correlate philosophical judgments</strong>, creating artificial consensus</li>
                 <li>Exhibit <strong>spurious specialist effects</strong>, assuming domain experts hold stereotypically aligned views</li>
                 <li>Organize disagreement along <strong>fundamentally different axes</strong> than humans</li>
@@ -90,8 +90,8 @@
 
             <div class="result-section">
                 <h3>1. Heterogeneity Collapse</h3>
-                <p><strong>LLMs show 1.6-3.0× lower within-group variance than humans</strong> across 64 exact-match philosophical questions.</p>
-                <p>Based on conservative comparison using only questions with exact string matches across all 8 datasets (Human + 7 LLMs), including 12 clean binary pairs with position inversion.</p>
+                <p><strong>LLMs show 1.8–3.6× lower within-group variance than humans</strong> across 100 philosophical questions.</p>
+                <p>Based on 100 positive-option questions following Bourget &amp; Chalmers (2023) methodology.</p>
             </div>
 
             <div class="result-section">
@@ -136,7 +136,7 @@
 
             <div class="viz-container">
                 <h3>Per-Question Variance Across Models</h3>
-                <p class="viz-description">Compare how much disagreement (variance) each model produces per question. Human philosophers show 0.062 variance; all LLMs show dramatically lower values (0.026-0.043).</p>
+                <p class="viz-description">Compare how much disagreement (variance) each model produces per question. Human philosophers show 0.071 variance; all LLMs show dramatically lower values (0.020–0.040).</p>
                 <div id="variance-viz"></div>
             </div>
 
@@ -276,6 +276,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260228b"></script>
 </body>
 </html>

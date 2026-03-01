@@ -130,12 +130,17 @@ function initializeVisualizations() {
         const select = document.getElementById('question-select');
         select.innerHTML = ''; // Clear loading message
 
-        Object.keys(data).sort((a, b) => {
+        // Data already contains exactly 100 questions (Q0-Q99)
+        // No filtering needed - just sort and populate
+        const questionKeys = Object.keys(data).sort((a, b) => {
             // Sort by numeric part of Q0, Q1, etc.
             const numA = parseInt(a.replace('Q', ''));
             const numB = parseInt(b.replace('Q', ''));
             return numA - numB;
-        }).forEach(qKey => {
+        });
+
+        // Populate selector with all questions
+        questionKeys.forEach(qKey => {
             const qData = data[qKey];
             const option = document.createElement('option');
             option.value = qKey;
@@ -143,6 +148,14 @@ function initializeVisualizations() {
             option.textContent = `${qKey}: ${label}`;
             select.appendChild(option);
         });
+
+        // Enhanced logging
+        console.log('%c=== Question Selector Debug Info ===', 'color: blue; font-weight: bold;');
+        console.log(`Total questions in data: ${Object.keys(data).length}`);
+        console.log(`Questions shown in dropdown: ${questionKeys.length}`);
+        console.log(`Expected: 100`);
+        console.log(`✓ Status: ${questionKeys.length === 100 ? 'CORRECT ✓' : 'INCORRECT ✗'}`);
+        console.log('%c====================================', 'color: blue; font-weight: bold;');
 
         // Add change handler
         select.addEventListener('change', (e) => {

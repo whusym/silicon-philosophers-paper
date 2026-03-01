@@ -1,0 +1,80 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+venv/
+
+# IDE and editor files
+.cursor/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Intermediate analysis outputs
+*.csv
+*.npy
+*.log
+*.txt
+!requirements.txt
+
+# Intermediate data files
+*_progress.json
+*_mapping.json
+*_tracker.json
+batch_*.json
+correlation_results_*/
+demographic_*_results/
+html_downloads/
+llm_responses/
+llm_responses_*/
+model_correlations/
+result_analysis/
+
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# Backup files
+*.backup
+*.backup[0-9]
+*~
+
+# Test and temporary files
+test_*.html
+test_*.py
+temp_*.py
+sample_*.html
+
+# Jupyter notebooks (if any)
+*.ipynb_checkpoints/
+
+# Compressed archives
+*.zip
+*.tar.gz
+
+# Don't ignore essential files
+!pyproject.toml
+!uv.lock
+!requirements.txt
+!README.md
+
+# Website asset CSVs
+!assets/*.csv
