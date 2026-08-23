@@ -1,0 +1,86 @@
+%%%% Better Poster for
+%%%% The Collapse of Heterogeneity in Silicon Philosophers
+%%%% Yuanming Shi and Andreas Haupt
+%%%%
+%%%% Layout: Rafael Bailo's betterposter class
+%%%% https://github.com/rafaelbailo/betterposter-latex-template
+%%%% Design: Mike Morrison
+
+\documentclass[a0paper,fleqn]{betterposter}
+
+%% Wider right column so the existing side-by-side plot stays readable.
+\setlength{\leftbarwidth}{0.20\paperwidth}
+\setlength{\rightbarwidth}{0.36\paperwidth}
+
+%% The takeaway is one long sentence. Keep it large, not billboard-sized.
+\renewcommand{\fontsizemain}{\fontsize{54}{68}\selectfont}
+\renewcommand{\fontsizetitle}{\fontsize{52}{62}\selectfont}
+\renewcommand{\fontsizeauthor}{\fontsize{28}{36}\selectfont}
+\renewcommand{\fontsizesection}{\fontsize{36}{46}\selectfont}
+\renewcommand{\fontsizestandard}{\fontsize{26}{34}\selectfont}
+
+%% Empirical study: use the template's empirical teal.
+\renewcommand{\maincolumnbackgroundcolor}{empirical}
+
+\begin{document}
+\betterposter{
+%%%%%%%% MAIN COLUMN
+\maincolumn{
+A \textbf{social world model}---
+a generative model meant to stand
+in for a population of human minds---
+is adequate only if the distribution
+it induces over \textbf{agent-types}
+matches the population it represents.
+}{
+\qrcode{img/qrcode}{img/smartphoneWhite}{
+\textbf{Take a picture}
+\\for the paper and
+\\data explorer.
+}
+}
+
+}{
+%%%%%%%% LEFT COLUMN
+
+\title{The Collapse of Heterogeneity\\in Silicon Philosophers}
+\author{Yuanming Shi\quad Andreas Haupt}
+\institution{Adobe Inc.\quad Stanford University}
+
+\section{Question}
+Can an LLM stand in for a
+population of minds?
+
+\section{Setup}
+\begin{itemize}
+\item 277 PhilPeople philosophers
+\item 100 PhilPapers questions
+\item 7 profile-conditioned LLMs
+\end{itemize}
+
+\section{Test}
+Does the model induce the same
+distribution over agent-types
+as the humans it represents?
+
+\vfill
+{\color{gray}\fontsize{20}{26}\selectfont
+ACM FAccT 2026
+}
+
+}{
+%%%%%%%% RIGHT COLUMN
+
+\section{Human vs.\ Claude}
+\begin{center}
+\includegraphics[width=\textwidth]{figures/figure1_human_vs_sonnet}
+\end{center}
+
+\vspace{0.4em}
+Each cell is one philosopher on one
+question. Humans disagree inside each
+column. Claude fills columns with one
+answer.
+
+}
+\end{document}
