@@ -4,32 +4,33 @@
 %%%%
 %%%% Layout: Rafael Bailo's betterposter class
 %%%% Design: Mike Morrison
-%%%% Tables copied from the paper source (no newly invented tables).
 
 \documentclass[a0paper,fleqn]{betterposter}
 
 \usepackage{booktabs}
 \usepackage{array}
 
-%% Side columns wide enough for compact paper tables.
-\setlength{\leftbarwidth}{0.24\paperwidth}
-\setlength{\rightbarwidth}{0.33\paperwidth}
+\setlength{\leftbarwidth}{0.27\paperwidth}
+\setlength{\rightbarwidth}{0.31\paperwidth}
+
+%% One type scale for the whole poster.
+\renewcommand{\fontsizemain}{\fontsize{44}{52}\selectfont}
+\renewcommand{\fontsizetitle}{\fontsize{38}{44}\selectfont}
+\renewcommand{\fontsizeauthor}{\fontsize{24}{30}\selectfont}
+\renewcommand{\fontsizesection}{\fontsize{28}{34}\selectfont}
+\renewcommand{\fontsizestandard}{\fontsize{26}{34}\selectfont}
 
 \renewcommand{\section}[1]{%
-\vspace{0.28em}{\fontsizesection\selectfont
-\textbf{\leavevmode #1}}\\[0.12em]
+\vspace{0.7em}{\fontsizesection\selectfont
+\textbf{\leavevmode #1}}\\[0.25em]
 }
-
-\renewcommand{\fontsizemain}{\fontsize{48}{58}\selectfont}
-\renewcommand{\fontsizetitle}{\fontsize{40}{48}\selectfont}
-\renewcommand{\fontsizeauthor}{\fontsize{22}{28}\selectfont}
-\renewcommand{\fontsizesection}{\fontsize{24}{30}\selectfont}
-\renewcommand{\fontsizestandard}{\fontsize{20}{26}\selectfont}
 
 \renewcommand{\maincolumnbackgroundcolor}{empirical}
 
-\newcommand{\tablefont}{\fontsize{15}{19}\selectfont}
-\newcommand{\tablenote}{\color{gray}\fontsize{14}{18}\selectfont}
+\setlist[itemize]{leftmargin=1.15em, itemsep=0.38em, topsep=0.2em}
+
+\newcommand{\metric}[1]{\textbf{#1}}
+\renewcommand{\arraystretch}{1.12}
 
 \begin{document}
 \betterposter{
@@ -40,13 +41,23 @@ adequate only if it matches
 the \textbf{distribution of
 human minds}.
 
+\vspace{0.45em}
+{\fontsize{26}{34}\selectfont
+\begin{center}
+\setlength{\fboxsep}{14pt}%
+\colorbox{white}{%
+\includegraphics[width=0.94\textwidth]{figures/figure1_human_vs_sonnet}}\\[0.4em]
+Each cell is one philosopher on one question.
+Humans are speckled; Claude forms vertical bands.
+\end{center}
+}
+
 \vspace{0.35em}
-{\fontsize{38}{48}\selectfont
+{\fontsize{34}{42}\selectfont
 Silicon philosophers
 \textbf{fail this test}:
-they are \textbf{1.9--3.9$\times$}
-too uniform, and they
-disagree along the
+they are \textbf{too uniform},
+and they disagree along the
 \textbf{wrong axes}.
 }
 }{
@@ -71,185 +82,192 @@ population of minds?
 
 \section{Setup}
 \begin{itemize}
-\item $N=277$ PhilPeople philosophers
-\item 100 PhilPapers 2020 questions
-\item 7 profile-conditioned LLMs
-\item Temperature 0; Accept $\to$ Reject
-coded onto $[0,1]$
+\item $N=277$ PhilPeople philosophers,
+100 PhilPapers 2020 questions
+\item 7 profile-conditioned LLMs,
+temperature 0
+\item Accept $\to$ Reject coded onto $[0,1]$
 \item Checked against PhilPapers 2020
 ($N=1{,}785$)
 \end{itemize}
 
 \section{Silicon sampling}
 \begin{center}
-\includegraphics[width=\textwidth]{figures/silicon_sampling_pipeline}
+\includegraphics[width=0.92\textwidth]{figures/silicon_sampling_pipeline}
 \end{center}
-{\tablenote Fig.~1. Profile $\to$ question $\to$ coded stance $\to$ fidelity.}
+{\color{gray}Profile $\to$ question $\to$ coded stance $\to$ fidelity.}
 
-\section{Spread collapses}
-{\tablefont\setlength{\tabcolsep}{3pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lccccc@{}}
-\toprule
-Model & N & Q & Responses & Resp\% & Per-Q Var \\
-\midrule
-Human & 277 & 100 & 10{,}768 & 38.9\% & 0.053 \\
-\midrule
-GPT-4o & 277 & 100 & 16{,}670 & 60.2\% & 0.014 \\
-GPT-5.1 & 276$^\dagger$ & 100 & 16{,}526 & 59.9\% & 0.014 \\
-Claude-Sonnet-4.5 & 277 & 100 & 16{,}612 & 60.0\% & 0.026 \\
-Llama-3.1-8B & 277 & 100 & 19{,}144 & 69.1\% & 0.026 \\
-Llama-3.1-8B (FT) & 277 & 100 & 18{,}413 & 66.5\% & 0.019 \\
-Mistral-7B & 277 & 100 & 18{,}764 & 67.7\% & 0.028 \\
-Qwen-3-4B & 277 & 100 & 23{,}077 & 83.3\% & 0.016 \\
-\bottomrule
-\end{tabular}}\\[0.25em]
-}
-{\tablenote Paper Table~1. Humans are $1.9$--$3.9\times$ more variable.
-$^\dagger$One silicon philosopher returned empty results.}
+\section{How we measure spread}
+\begin{itemize}
+\item \metric{Resp\%} is how often a source
+answers a question. Humans skip more;
+models answer more.
+\item \metric{Per-Q Var} is the average
+variance of answers \emph{on the same
+question}. High variance means
+philosophers actually disagree.
+\end{itemize}
 
-\section{Closest still not close}
-{\tablefont\setlength{\tabcolsep}{4pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lccc@{}}
+{\fontsizestandard
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{@{}l r r@{}}
 \toprule
-Model & KL Div.\ ($\downarrow$) & JS Div.\ ($\downarrow$) & Pearson $r$ ($\uparrow$) \\
+Source & Resp\% & Per-Q Var \\
 \midrule
-Claude-Sonnet-4.5 & 0.052 & 0.010 & 0.495 \\
-Llama-3.1-8B      & 0.055 & 0.015 & 0.268 \\
-Llama-3.1-8B (FT) & 0.291 & 0.087 & 0.272 \\
-Mistral-7B        & 0.653 & 0.178 & 0.264 \\
-Qwen-3-4B         & 0.907 & 0.160 & 0.291 \\
-GPT-5.1           & 0.974 & 0.142 & 0.422 \\
-GPT-4o            & 1.012 & 0.145 & 0.416 \\
+Human & 38.9\% & 0.053 \\
+\midrule
+Claude-Sonnet-4.5 & 60.0\% & 0.026 \\
+Llama-3.1-8B & 69.1\% & 0.026 \\
+Mistral-7B & 67.7\% & 0.028 \\
+Llama-3.1-8B (FT) & 66.5\% & 0.019 \\
+Qwen-3-4B & 83.3\% & 0.016 \\
+GPT-4o & 60.2\% & 0.014 \\
+GPT-5.1 & 59.9\% & 0.014 \\
 \bottomrule
-\end{tabular}}\\[0.25em]
+\end{tabular}\\[0.35em]
 }
-{\tablenote Paper Table~2. Flattened $277\times 100$ matrices vs.\ human.}
+
+Humans disagree more than every
+silicon sample. Models fill in more
+answers, with less spread.
 
 \section{Normative domains fail most}
-{\tablefont\setlength{\tabcolsep}{3pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}rlccc@{}}
-\toprule
-Rank & Domain & RMSE & H.Var & N \\
-\midrule
-1 & Aesthetics & 0.216 & 0.014 & 1 \\
-2 & Philosophy of Language & 0.257 & 0.036 & 7 \\
-3 & History of Philosophy & 0.271 & 0.031 & 4 \\
-4 & Political \& Social Phil. & 0.278 & 0.044 & 7 \\
-5 & Phil.\ Methodology & 0.279 & 0.064 & 6 \\
-6 & Philosophy of Mind & 0.284 & 0.044 & 14 \\
-7 & Metaphysics & 0.295 & 0.040 & 17 \\
-8 & Decision Theory & 0.297 & 0.032 & 3 \\
-9 & Epistemology & 0.310 & 0.053 & 10 \\
-10 & Philosophy of Science & 0.323 & 0.032 & 4 \\
-11 & Logic \& Formal Phil. & 0.349 & 0.036 & 5 \\
-12 & Ethics \& Moral Phil. & 0.362 & 0.082 & 10 \\
-13 & Applied Ethics & 0.406 & 0.100 & 8 \\
-14 & Philosophy of Religion & 0.412 & 0.097 & 4 \\
-\bottomrule
-\end{tabular}}\\[0.25em]
-}
-{\tablenote Paper Table~5. RMSE tracks human variance ($r=0.75$).}
+\begin{itemize}
+\item Models look accurate where
+philosophers already agree
+(aesthetics, language).
+\item They fail on applied ethics and
+philosophy of religion --- the
+domains with the most human
+disagreement, and the ones that
+matter for alignment.
+\item Prediction error tracks human
+variance ($r=0.75$): the model is
+not ``better at ethics''; it just
+benefits from consensus questions.
+\end{itemize}
 
 \vfill
-\vspace{0.2em}
 \noindent
 \begin{tabular}{@{}c@{\hspace{0.3em}}c@{\hspace{0.3em}}c@{}}
-\includegraphics[height=2.5cm]{img/logo-adobe} &
-\includegraphics[height=2.5cm]{img/logo-stanford} &
-\includegraphics[height=2.5cm]{img/logo-del}
+\includegraphics[height=2.4cm]{img/logo-adobe} &
+\includegraphics[height=2.4cm]{img/logo-stanford} &
+\includegraphics[height=2.4cm]{img/logo-del}
 \end{tabular}
 
 \vspace{0.25em}
-{\color{gray}\fontsize{20}{26}\selectfont
-WM@Booth 2026
-}
+{\color{gray}WM@Booth 2026}
 
 }{
 %%%%%%%% RIGHT COLUMN
 
-\section{Human vs.\ Claude}
-\begin{center}
-\includegraphics[width=0.92\textwidth]{figures/figure1_human_vs_sonnet}
-\end{center}
-{\tablenote Fig.~3a. Each cell is one philosopher on one question.
-Humans speckled; Claude forms vertical bands.}
+\section{PCA: the axes of disagreement}
+Principal component analysis finds the
+main directions along which philosophers
+differ --- following Bourget \& Chalmers
+on the PhilPapers survey.
 
-\section{Wrong axes}
-{\tablefont\setlength{\tabcolsep}{4pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lcccc@{}}
+\begin{itemize}
+\item \metric{Var(6)} is the share of
+disagreement captured by the first
+6 components. Higher than humans
+means the model collapsed onto
+fewer axes.
+\item \metric{Elem $r$} asks: do the same
+question-pairs hang together as in
+humans?
+\item \metric{Load $r$} asks: do the same
+questions load on the same
+components?
+\end{itemize}
+
+Human disagreement is
+multi-dimensional: five axes each
+explain $\geq 2\%$, and PC1 is
+naturalism / meta-ethics --- not a
+single left--right spectrum.
+
+LLMs do not recover those axes.
+GPT models dump more variance into
+six components. Their PC1 clusters
+by surface topic (mind uploading,
+spacetime), not by the human
+cross-domain pattern. Even the best
+loading alignment stays weak.
+
+{\fontsizestandard
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{@{}l r r r@{}}
 \toprule
-Source & Var(6) & Elem $r$ & Load $r$ & Q.\ Overlap \\
+Source & Var(6) & Elem $r$ & Load $r$ \\
 \midrule
-Human ($N=277$) & 71.1\% & --- & --- & --- \\
+Human & 71.1\% & --- & --- \\
 \midrule
-Claude-Sonnet-4.5 & 72.3\% & 0.245** & 0.023 & 0.8/5 \\
-GPT-4o & 83.0\% & 0.103** & 0.110 & 0.8/5 \\
-GPT-5.1 & 81.6\% & 0.099** & $-$0.137 & 0.7/5 \\
-Llama-3.1-8B (FT) & 61.2\% & 0.065* & $-$0.063 & 0.7/5 \\
-Mistral-7B & 73.8\% & 0.027 & $-$0.041 & 0.7/5 \\
-Qwen-3-4B & 67.8\% & 0.027 & 0.045 & 0.8/5 \\
-Llama-3.1-8B & 62.4\% & 0.016 & 0.026 & 0.7/5 \\
+Claude-Sonnet-4.5 & 72.3\% & 0.245** & 0.023 \\
+GPT-4o & 83.0\% & 0.103** & 0.110 \\
+GPT-5.1 & 81.6\% & 0.099** & $-$0.137 \\
+Mistral-7B & 73.8\% & 0.027 & $-$0.041 \\
+Qwen-3-4B & 67.8\% & 0.027 & 0.045 \\
+Llama-3.1-8B (FT) & 61.2\% & 0.065* & $-$0.063 \\
+Llama-3.1-8B & 62.4\% & 0.016 & 0.026 \\
 \bottomrule
-\end{tabular}}\\[0.25em]
+\end{tabular}\\[0.25em]
 }
-{\tablenote Paper Table~6. GPT models dump more variance into 6 axes.
-Best loading alignment is still weak.}
+{\color{gray}**$p<0.01$, *$p<0.05$.}
 
-\section{Stereotypes fill the gap}
-{\tablefont\setlength{\tabcolsep}{3pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lcccc@{}}
+\section{Invented specialist links}
+Each silicon philosopher is prompted
+with a PhilPeople profile, including
+areas of specialization and areas of
+interest. Models treat those labels
+as a cue for the \emph{question's
+topic}, and invent a stance that
+``fits'' the words.
+
+\begin{itemize}
+\item Philosophy of Biology in the
+prompt $\to$ the ``biological'' view
+of personal identity on the test
+item, because the words overlap.
+Real biology specialists do not
+show this link.
+\item Ancient philosophy in the prompt
+$\to$ ``must be Aristotelian'' on
+practical reason. Humans: no such
+link.
+\item The same lexical shortcut runs
+the other way: biology specialists
+are pushed \emph{against}
+psychological identity.
+\item These are bogus relationships:
+large and significant in the
+silicon sample, absent in the
+277-philosopher ground truth and
+in PhilPapers 2020.
+\end{itemize}
+
+{\fontsizestandard
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}p{0.50\textwidth} r c r c@{}}
 \toprule
-& \multicolumn{2}{c}{\emph{Ground Truth ($N=277$)}} & \multicolumn{2}{c}{\emph{LLM Predictions}} \\
+& \multicolumn{2}{c}{Human} & \multicolumn{2}{c}{LLM} \\
 \cmidrule(lr){2-3} \cmidrule(lr){4-5}
-Specialist Effect & Diff & Sig & Avg Diff & Sig Models \\
+Specialist effect & Diff & Sig & Diff & Sig \\
 \midrule
-Phil.\ Biology $\rightarrow$ Personal identity: biological  & $+11.4$\,pp & n.s. & $+43$\,pp & 4/7*** \\
-Phil.\ Biology $\rightarrow$ Personal identity: psychological  & $+4.1$\,pp & n.s. & $-65.7$\,pp & 3/7*** \\
-Ancient Phil.\ $\rightarrow$ Practical reason: Aristotelian  & $+1.9$\,pp & n.s. & $+68.9$\,pp & 7/7*** \\
+Biology $\to$ biol.\ identity
+  & $+11.4$\,pp & n.s. & $+43$\,pp & 4/7 \\
+Biology $\to$ psych.\ identity
+  & $+4.1$\,pp & n.s. & $-65.7$\,pp & 3/7 \\
+Ancient $\to$ Aristotelian
+  & $+1.9$\,pp & n.s. & $+68.9$\,pp & 7/7 \\
 \bottomrule
-\end{tabular}}\\[0.25em]
+\end{tabular}
 }
-{\tablenote Paper Table~3. Ground truth n.s.; LLMs invent the link.}
 
-\section{Question structure}
-{\tablefont\setlength{\tabcolsep}{4pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-Model & Elem $r$ & RV & KL & JS \\
-\midrule
-Sonnet-4.5 & 0.182** & 0.318 & 0.188 & 0.048 \\
-GPT-5.1 & 0.089** & 0.307 & 0.468 & 0.110 \\
-GPT-4o & 0.088** & 0.318 & 0.485 & 0.114 \\
-Llama-3.1-8B (FT) & 0.044* & 0.224 & 0.176 & 0.046 \\
-Mistral-7B & 0.043* & 0.267 & 0.387 & 0.088 \\
-Qwen-3-4B & 0.024 & 0.321 & 0.670 & 0.138 \\
-Llama-3.1-8B & 0.020 & 0.234 & 0.195 & 0.046 \\
-\bottomrule
-\end{tabular}}\\[0.25em]
-}
-{\tablenote Paper Table~7. $100\times 100$ question-correlation matrices.
-**$p<0.01$, *$p<0.05$.}
-
-\section{DPO does not restore it}
-{\tablefont\setlength{\tabcolsep}{3pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lccccc@{}}
-\toprule
-& \multicolumn{2}{c}{\emph{Resp.\ Div.}} & \multicolumn{3}{c}{\emph{Struct.\ Coh.}} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-6}
-Model & Entr. & KL & Elem $r$ & C.KL & C.JS \\
-\midrule
-Llama Base & 0.737 & 0.07 & 0.020 & 0.195 & 0.046 \\
-Llama DPO  & 0.794 & 0.40 & 0.044* & 0.176 & 0.046 \\
-\bottomrule
-\end{tabular}}
-}
+DPO fine-tuning improves
+question-to-question structure
+but does not restore human-like
+diversity.
 
 }
 \end{document}
