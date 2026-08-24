@@ -154,64 +154,27 @@ benefits from consensus questions.
 
 \section{Human vs.\ Claude}
 \begin{center}
-\includegraphics[width=0.84\textwidth]{figures/figure1_human_vs_sonnet}
+\includegraphics[width=0.96\textwidth]{figures/figure1_human_vs_sonnet}
 \end{center}
 {\color{gray}Each cell is one philosopher on one question.
 Humans are speckled; Claude forms vertical bands.}
 
 \section{PCA: the axes of disagreement}
-Principal component analysis finds the
-main directions along which philosophers
-differ --- following Bourget \& Chalmers
-on the PhilPapers survey.
+PCA finds the main directions along
+which philosophers differ.
 
 \begin{itemize}
-\item \metric{Var(6)} is the share of
-disagreement captured by the first
-6 components. Higher than humans
-means the model collapsed onto
-fewer axes.
-\item \metric{Elem $r$} asks: do the same
-question-pairs hang together as in
-humans?
-\item \metric{Load $r$} asks: do the same
-questions load on the same
-components?
+\item Humans: five independent axes.
+PC1 is naturalism / meta-ethics,
+not a left--right spectrum.
+\item LLMs collapse onto fewer, topical
+axes (mind uploading, spacetime)
+instead of that cross-domain
+pattern.
+\item Component loadings do not match
+humans. Even the best alignment
+stays weak.
 \end{itemize}
-
-Human disagreement is
-multi-dimensional: five axes each
-explain $\geq 2\%$, and PC1 is
-naturalism / meta-ethics --- not a
-single left--right spectrum.
-
-LLMs do not recover those axes.
-GPT models dump more variance into
-six components. Their PC1 clusters
-by surface topic (mind uploading,
-spacetime), not by the human
-cross-domain pattern. Even the best
-loading alignment stays weak.
-
-{\fontsizestandard
-\setlength{\tabcolsep}{7pt}
-\begin{tabular}{@{}l r r r@{}}
-\toprule
-Source & Var(6) & Elem $r$ & Load $r$ \\
-\midrule
-Human & 71.1\% & --- & --- \\
-\midrule
-Claude-Sonnet-4.5 & 72.3\% & 0.245** & 0.023 \\
-GPT-4o & 83.0\% & 0.103** & 0.110 \\
-GPT-5.1 & 81.6\% & 0.099** & $-$0.137 \\
-Mistral-7B & 73.8\% & 0.027 & $-$0.041 \\
-Qwen-3-4B & 67.8\% & 0.027 & 0.045 \\
-Llama-3.1-8B (FT) & 61.2\% & 0.065* & $-$0.063 \\
-Llama-3.1-8B & 62.4\% & 0.016 & 0.026 \\
-\bottomrule
-\end{tabular}\\[0.2em]
-}
-{\color{gray}**$p<0.01$, *$p<0.05$.}
 
 \section{Invented specialist links}
 Each silicon philosopher is prompted
