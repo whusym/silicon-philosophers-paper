@@ -177,6 +177,23 @@ humans. Even the best alignment
 stays weak.
 \end{itemize}
 
+\section{KL, JS, and Mantel}
+\begin{itemize}
+\item \metric{KL} / \metric{JS}: distance of the
+answer mix from humans (lower is
+closer). Claude is nearest
+($0.052$ / $0.010$); GPT-4o is
+farthest ($1.012$ / $0.145$).
+\item \metric{Mantel}: permutation test on
+the $100\times 100$ question-correlation
+matrix --- is the structure closer
+than chance?
+\item Claude and both GPTs pass Mantel
+($p<0.01$). Llama-FT and Mistral
+are weaker ($p<0.05$). Llama base
+and Qwen do not.
+\end{itemize}
+
 \section{Invented specialist links}
 Each silicon philosopher is prompted
 with a PhilPeople profile, including
