@@ -20,14 +20,18 @@
 \renewcommand{\fontsizesection}{\fontsize{30}{36}\selectfont}
 \renewcommand{\fontsizestandard}{\fontsize{28}{36}\selectfont}
 
+\renewcommand{\title}[1]{%
+{\fontsizetitle\textbf{#1}}\par\vspace{0.28em}%
+}
+
 \renewcommand{\section}[1]{%
-\vspace{0.32em}{\fontsizesection\selectfont
-\textbf{\leavevmode #1}}\\[0.12em]
+\par\vspace{0.55em}%
+{\fontsizesection\selectfont\textbf{#1}}\par\vspace{0.22em}%
 }
 
 \renewcommand{\maincolumnbackgroundcolor}{empirical}
 
-\setlist[itemize]{leftmargin=1.15em, itemsep=0.22em, topsep=0.08em}
+\setlist[itemize]{leftmargin=1.15em, itemsep=0.22em, topsep=0pt, partopsep=0pt}
 
 \newcommand{\metric}[1]{\textbf{#1}}
 \renewcommand{\arraystretch}{1.10}
@@ -63,8 +67,7 @@ and they disagree along the
 %%%%%%%% LEFT COLUMN
 
 \title{The Collapse of Heterogeneity\\in Silicon Philosophers}
-
-{\color{gray}\fontsizeauthor Yuanming Shi\quad Andreas Haupt}\\[0.2em]
+{\color{gray}\fontsizeauthor Yuanming Shi\quad Andreas Haupt}\par\vspace{0.12em}
 {\color{gray}Adobe Inc.\quad Stanford University}
 
 \section{Question}
@@ -83,10 +86,9 @@ temperature 0
 \end{itemize}
 
 \section{Silicon sampling}
-\begin{center}
-\includegraphics[width=0.95\textwidth]{figures/silicon_sampling_pipeline}
-\end{center}
-{\color{gray}Profile $\to$ question $\to$ coded stance $\to$ fidelity.}
+\noindent
+\makebox[\textwidth][c]{%
+\includegraphics[width=1.08\textwidth]{figures/silicon_sampling_pipeline.png}}
 
 \section{How we measure spread}
 \begin{itemize}
@@ -153,9 +155,8 @@ benefits from consensus questions.
 %%%%%%%% RIGHT COLUMN
 
 \section{Human vs.\ Claude}
-\begin{center}
-\includegraphics[width=0.96\textwidth]{figures/figure1_human_vs_sonnet}
-\end{center}
+\noindent
+\includegraphics[width=\textwidth]{figures/figure1_human_vs_sonnet}\\[0.12em]
 {\color{gray}Each cell is one philosopher on one question.
 Humans are speckled; Claude forms vertical bands.}
 
@@ -225,10 +226,17 @@ Ancient $\to$ Aristotelian
 \end{tabular}
 }
 
-DPO fine-tuning improves
-question-to-question structure
-but does not restore human-like
-diversity.
+\section{DPO fine-tuning}
+DPO on Llama-3.1-8B improves
+structure, not diversity.
+
+\begin{itemize}
+\item Question-to-question correlation
+doubles, but still far from human.
+\item The answer mix drifts: $34.7\%$
+Agnostic vs.\ $1.4\%$ in humans.
+\item Human-like spread is not restored.
+\end{itemize}
 
 }
 \end{document}
