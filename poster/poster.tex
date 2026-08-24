@@ -1,0 +1,259 @@
+%%%% Better Poster for
+%%%% The Collapse of Heterogeneity in Silicon Philosophers
+%%%% Yuanming Shi and Andreas Haupt
+%%%%
+%%%% Layout: Rafael Bailo's betterposter class
+%%%% Design: Mike Morrison
+
+\documentclass[a0paper,fleqn]{betterposter}
+
+\usepackage{booktabs}
+\usepackage{array}
+
+\setlength{\leftbarwidth}{0.255\paperwidth}
+\setlength{\rightbarwidth}{0.345\paperwidth}
+
+%% One type scale, sized to read from a few metres.
+\renewcommand{\fontsizemain}{\fontsize{64}{76}\selectfont}
+\renewcommand{\fontsizetitle}{\fontsize{40}{48}\selectfont}
+\renewcommand{\fontsizeauthor}{\fontsize{26}{32}\selectfont}
+\renewcommand{\fontsizesection}{\fontsize{30}{36}\selectfont}
+\renewcommand{\fontsizestandard}{\fontsize{28}{36}\selectfont}
+
+\renewcommand{\title}[1]{%
+{\fontsizetitle\textbf{#1}}\par\vspace{0.28em}%
+}
+
+\renewcommand{\section}[1]{%
+\par\vspace{0.55em}%
+{\fontsizesection\selectfont\textbf{#1}}\par\vspace{0.22em}%
+}
+
+\renewcommand{\maincolumnbackgroundcolor}{empirical}
+
+\setlist[itemize]{leftmargin=1.15em, itemsep=0.22em, topsep=0pt, partopsep=0pt}
+
+\newcommand{\metric}[1]{\textbf{#1}}
+\renewcommand{\arraystretch}{1.10}
+
+\begin{document}
+\betterposter{
+%%%%%%%% MAIN COLUMN
+\maincolumn{
+A social world model is
+adequate only if the
+distribution it induces
+matches the distribution
+of the population it
+represents.
+
+\vspace{0.55em}
+{\fontsize{42}{52}\selectfont
+Silicon philosophers
+\textbf{fail this test}:
+they are \textbf{too uniform},
+and they disagree along the
+\textbf{wrong axes}.
+}
+}{
+\qrcode{img/qrcode}{img/smartphoneWhite}{
+\textbf{Take a picture}
+\\for the paper and
+\\data explorer.
+}
+}
+
+}{
+%%%%%%%% LEFT COLUMN
+
+\title{The Collapse of Heterogeneity\\in Silicon Philosophers}
+{\color{gray}\fontsizeauthor Yuanming Shi\quad Andreas Haupt}\par\vspace{0.12em}
+{\color{gray}Adobe Inc.\quad Stanford University}
+
+\section{Question}
+Can an LLM stand in for a
+population of minds?
+
+\section{Setup}
+\begin{itemize}
+\item $N=277$ PhilPeople philosophers,
+100 PhilPapers 2020 questions
+\item 7 profile-conditioned LLMs,
+temperature 0
+\item Accept $\to$ Reject coded onto $[0,1]$
+\item Checked against PhilPapers 2020
+($N=1{,}785$)
+\end{itemize}
+
+\section{Silicon sampling}
+\noindent
+\makebox[\textwidth][c]{%
+\includegraphics[width=1.08\textwidth]{figures/silicon_sampling_pipeline.png}}
+
+\section{How we measure spread}
+\begin{itemize}
+\item \metric{Resp\%} is how often a source
+answers a question. Humans skip more;
+models answer more.
+\item \metric{Per-Q Var} is the average
+variance of answers \emph{on the same
+question}. High variance means
+philosophers actually disagree.
+\end{itemize}
+
+{\fontsizestandard
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{@{}l r r@{}}
+\toprule
+Source & Resp\% & Per-Q Var \\
+\midrule
+Human & 38.9\% & 0.053 \\
+\midrule
+Claude-Sonnet-4.5 & 60.0\% & 0.026 \\
+Llama-3.1-8B & 69.1\% & 0.026 \\
+Mistral-7B & 67.7\% & 0.028 \\
+Llama-3.1-8B (FT) & 66.5\% & 0.019 \\
+Qwen-3-4B & 83.3\% & 0.016 \\
+GPT-4o & 60.2\% & 0.014 \\
+GPT-5.1 & 59.9\% & 0.014 \\
+\bottomrule
+\end{tabular}\\[0.3em]
+}
+
+Humans disagree more than every
+silicon sample. Models fill in more
+answers, with less spread.
+
+\section{Normative domains fail most}
+\begin{itemize}
+\item Models look accurate where
+philosophers already agree
+(aesthetics, language).
+\item They fail on applied ethics and
+philosophy of religion --- the
+domains with the most human
+disagreement, and the ones that
+matter for alignment.
+\item Prediction error tracks human
+variance ($r=0.75$): the model is
+not ``better at ethics''; it just
+benefits from consensus questions.
+\end{itemize}
+
+\vfill
+\noindent
+\begin{tabular}{@{}c@{\hspace{0.45em}}c@{\hspace{0.45em}}c@{}}
+\includegraphics[height=3.45cm]{img/logo-adobe} &
+\includegraphics[height=3.45cm]{img/logo-stanford} &
+\includegraphics[height=3.45cm]{img/logo-del}
+\end{tabular}
+
+\vspace{0.2em}
+{\color{gray}WM@Booth 2026}
+
+}{
+%%%%%%%% RIGHT COLUMN
+
+\section{Human vs.\ Claude}
+\noindent
+\includegraphics[width=\textwidth]{figures/figure1_human_vs_sonnet}\\[0.12em]
+{\color{gray}Each cell is one philosopher on one question.
+Humans are speckled; Claude forms vertical bands.}
+
+\section{PCA: the axes of disagreement}
+PCA finds the main directions along
+which philosophers differ.
+
+\begin{itemize}
+\item Humans: five independent axes.
+PC1 is naturalism / meta-ethics,
+not a left--right spectrum.
+\item LLMs collapse onto fewer, topical
+axes (mind uploading, spacetime)
+instead of that cross-domain
+pattern.
+\item Component loadings do not match
+humans. Even the best alignment
+stays weak.
+\end{itemize}
+
+\section{KL, JS, and Mantel}
+\begin{itemize}
+\item \metric{KL} / \metric{JS}: distance of the
+answer mix from humans (lower is
+closer). Claude is nearest
+($0.052$ / $0.010$); GPT-4o is
+farthest ($1.012$ / $0.145$).
+\item \metric{Mantel}: permutation test on
+the $100\times 100$ question-correlation
+matrix --- is the structure closer
+than chance?
+\item Claude and both GPTs pass Mantel
+($p<0.01$). Llama-FT and Mistral
+are weaker ($p<0.05$). Llama base
+and Qwen do not.
+\end{itemize}
+
+\section{Invented specialist links}
+Each silicon philosopher is prompted
+with a PhilPeople profile, including
+areas of specialization and areas of
+interest. Models treat those labels
+as a cue for the \emph{question's
+topic}, and invent a stance that
+``fits'' the words.
+
+\begin{itemize}
+\item Philosophy of Biology in the
+prompt $\to$ the ``biological'' view
+of personal identity on the test
+item, because the words overlap.
+Real biology specialists do not
+show this link.
+\item Ancient philosophy in the prompt
+$\to$ ``must be Aristotelian'' on
+practical reason. Humans: no such
+link.
+\item The same lexical shortcut runs
+the other way: biology specialists
+are pushed \emph{against}
+psychological identity.
+\item These are bogus relationships:
+large and significant in the
+silicon sample, absent in the
+277-philosopher ground truth and
+in PhilPapers 2020.
+\end{itemize}
+
+{\fontsizestandard
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}p{0.48\textwidth} r c r c@{}}
+\toprule
+& \multicolumn{2}{c}{Human} & \multicolumn{2}{c}{LLM} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+Specialist effect & Diff & Sig & Diff & Sig \\
+\midrule
+Biology $\to$ biol.\ identity
+  & $+11.4$\,pp & n.s. & $+43$\,pp & 4/7 \\
+Biology $\to$ psych.\ identity
+  & $+4.1$\,pp & n.s. & $-65.7$\,pp & 3/7 \\
+Ancient $\to$ Aristotelian
+  & $+1.9$\,pp & n.s. & $+68.9$\,pp & 7/7 \\
+\bottomrule
+\end{tabular}
+}
+
+\section{DPO fine-tuning}
+DPO on Llama-3.1-8B improves
+structure, not diversity.
+
+\begin{itemize}
+\item Question-to-question correlation
+doubles, but still far from human.
+\item The answer mix drifts: $34.7\%$
+Agnostic vs.\ $1.4\%$ in humans.
+\item Human-like spread is not restored.
+\end{itemize}
+
+}
+\end{document}
