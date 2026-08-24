@@ -10,50 +10,41 @@
 \usepackage{booktabs}
 \usepackage{array}
 
-\setlength{\leftbarwidth}{0.27\paperwidth}
-\setlength{\rightbarwidth}{0.31\paperwidth}
+\setlength{\leftbarwidth}{0.255\paperwidth}
+\setlength{\rightbarwidth}{0.345\paperwidth}
 
-%% One type scale for the whole poster.
-\renewcommand{\fontsizemain}{\fontsize{44}{52}\selectfont}
-\renewcommand{\fontsizetitle}{\fontsize{38}{44}\selectfont}
-\renewcommand{\fontsizeauthor}{\fontsize{24}{30}\selectfont}
-\renewcommand{\fontsizesection}{\fontsize{28}{34}\selectfont}
-\renewcommand{\fontsizestandard}{\fontsize{26}{34}\selectfont}
+%% One type scale, sized to read from a few metres.
+\renewcommand{\fontsizemain}{\fontsize{64}{76}\selectfont}
+\renewcommand{\fontsizetitle}{\fontsize{40}{48}\selectfont}
+\renewcommand{\fontsizeauthor}{\fontsize{26}{32}\selectfont}
+\renewcommand{\fontsizesection}{\fontsize{30}{36}\selectfont}
+\renewcommand{\fontsizestandard}{\fontsize{28}{36}\selectfont}
 
 \renewcommand{\section}[1]{%
-\vspace{0.7em}{\fontsizesection\selectfont
-\textbf{\leavevmode #1}}\\[0.25em]
+\vspace{0.32em}{\fontsizesection\selectfont
+\textbf{\leavevmode #1}}\\[0.12em]
 }
 
 \renewcommand{\maincolumnbackgroundcolor}{empirical}
 
-\setlist[itemize]{leftmargin=1.15em, itemsep=0.38em, topsep=0.2em}
+\setlist[itemize]{leftmargin=1.15em, itemsep=0.22em, topsep=0.08em}
 
 \newcommand{\metric}[1]{\textbf{#1}}
-\renewcommand{\arraystretch}{1.12}
+\renewcommand{\arraystretch}{1.10}
 
 \begin{document}
 \betterposter{
 %%%%%%%% MAIN COLUMN
 \maincolumn{
 A social world model is
-adequate only if it matches
-the \textbf{distribution of
-human minds}.
+adequate only if the
+distribution it induces
+matches the distribution
+of the population it
+represents.
 
-\vspace{0.45em}
-{\fontsize{26}{34}\selectfont
-\begin{center}
-\setlength{\fboxsep}{14pt}%
-\colorbox{white}{%
-\includegraphics[width=0.94\textwidth]{figures/figure1_human_vs_sonnet}}\\[0.4em]
-Each cell is one philosopher on one question.
-Humans are speckled; Claude forms vertical bands.
-\end{center}
-}
-
-\vspace{0.35em}
-{\fontsize{34}{42}\selectfont
+\vspace{0.55em}
+{\fontsize{42}{52}\selectfont
 Silicon philosophers
 \textbf{fail this test}:
 they are \textbf{too uniform},
@@ -93,7 +84,7 @@ temperature 0
 
 \section{Silicon sampling}
 \begin{center}
-\includegraphics[width=0.92\textwidth]{figures/silicon_sampling_pipeline}
+\includegraphics[width=0.95\textwidth]{figures/silicon_sampling_pipeline}
 \end{center}
 {\color{gray}Profile $\to$ question $\to$ coded stance $\to$ fidelity.}
 
@@ -109,7 +100,7 @@ philosophers actually disagree.
 \end{itemize}
 
 {\fontsizestandard
-\setlength{\tabcolsep}{10pt}
+\setlength{\tabcolsep}{8pt}
 \begin{tabular}{@{}l r r@{}}
 \toprule
 Source & Resp\% & Per-Q Var \\
@@ -124,7 +115,7 @@ Qwen-3-4B & 83.3\% & 0.016 \\
 GPT-4o & 60.2\% & 0.014 \\
 GPT-5.1 & 59.9\% & 0.014 \\
 \bottomrule
-\end{tabular}\\[0.35em]
+\end{tabular}\\[0.3em]
 }
 
 Humans disagree more than every
@@ -150,16 +141,23 @@ benefits from consensus questions.
 \vfill
 \noindent
 \begin{tabular}{@{}c@{\hspace{0.3em}}c@{\hspace{0.3em}}c@{}}
-\includegraphics[height=2.4cm]{img/logo-adobe} &
-\includegraphics[height=2.4cm]{img/logo-stanford} &
-\includegraphics[height=2.4cm]{img/logo-del}
+\includegraphics[height=2.3cm]{img/logo-adobe} &
+\includegraphics[height=2.3cm]{img/logo-stanford} &
+\includegraphics[height=2.3cm]{img/logo-del}
 \end{tabular}
 
-\vspace{0.25em}
+\vspace{0.2em}
 {\color{gray}WM@Booth 2026}
 
 }{
 %%%%%%%% RIGHT COLUMN
+
+\section{Human vs.\ Claude}
+\begin{center}
+\includegraphics[width=0.84\textwidth]{figures/figure1_human_vs_sonnet}
+\end{center}
+{\color{gray}Each cell is one philosopher on one question.
+Humans are speckled; Claude forms vertical bands.}
 
 \section{PCA: the axes of disagreement}
 Principal component analysis finds the
@@ -196,7 +194,7 @@ cross-domain pattern. Even the best
 loading alignment stays weak.
 
 {\fontsizestandard
-\setlength{\tabcolsep}{8pt}
+\setlength{\tabcolsep}{7pt}
 \begin{tabular}{@{}l r r r@{}}
 \toprule
 Source & Var(6) & Elem $r$ & Load $r$ \\
@@ -211,7 +209,7 @@ Qwen-3-4B & 67.8\% & 0.027 & 0.045 \\
 Llama-3.1-8B (FT) & 61.2\% & 0.065* & $-$0.063 \\
 Llama-3.1-8B & 62.4\% & 0.016 & 0.026 \\
 \bottomrule
-\end{tabular}\\[0.25em]
+\end{tabular}\\[0.2em]
 }
 {\color{gray}**$p<0.01$, *$p<0.05$.}
 
@@ -248,7 +246,7 @@ in PhilPapers 2020.
 
 {\fontsizestandard
 \setlength{\tabcolsep}{5pt}
-\begin{tabular}{@{}p{0.50\textwidth} r c r c@{}}
+\begin{tabular}{@{}p{0.48\textwidth} r c r c@{}}
 \toprule
 & \multicolumn{2}{c}{Human} & \multicolumn{2}{c}{LLM} \\
 \cmidrule(lr){2-3} \cmidrule(lr){4-5}
