@@ -4,6 +4,7 @@
 %%%%
 %%%% Layout: Rafael Bailo's betterposter class
 %%%% Design: Mike Morrison
+%%%% Tables copied from the paper source (no newly invented tables).
 
 \documentclass[a0paper,fleqn]{betterposter}
 
@@ -15,20 +16,20 @@
 \setlength{\rightbarwidth}{0.33\paperwidth}
 
 \renewcommand{\section}[1]{%
-\vspace{0.55em}{\fontsizesection\selectfont
-\textbf{\leavevmode #1}}\\[0.2em]
+\vspace{0.28em}{\fontsizesection\selectfont
+\textbf{\leavevmode #1}}\\[0.12em]
 }
 
 \renewcommand{\fontsizemain}{\fontsize{48}{58}\selectfont}
-\renewcommand{\fontsizetitle}{\fontsize{42}{50}\selectfont}
-\renewcommand{\fontsizeauthor}{\fontsize{24}{32}\selectfont}
-\renewcommand{\fontsizesection}{\fontsize{28}{36}\selectfont}
-\renewcommand{\fontsizestandard}{\fontsize{22}{28}\selectfont}
+\renewcommand{\fontsizetitle}{\fontsize{40}{48}\selectfont}
+\renewcommand{\fontsizeauthor}{\fontsize{22}{28}\selectfont}
+\renewcommand{\fontsizesection}{\fontsize{24}{30}\selectfont}
+\renewcommand{\fontsizestandard}{\fontsize{20}{26}\selectfont}
 
 \renewcommand{\maincolumnbackgroundcolor}{empirical}
 
-\newcommand{\tablefont}{\fontsize{18}{24}\selectfont}
-\newcommand{\tablenote}{\color{gray}\fontsize{16}{20}\selectfont}
+\newcommand{\tablefont}{\fontsize{15}{19}\selectfont}
+\newcommand{\tablenote}{\color{gray}\fontsize{14}{18}\selectfont}
 
 \begin{document}
 \betterposter{
@@ -43,7 +44,7 @@ human minds}.
 {\fontsize{38}{48}\selectfont
 Silicon philosophers
 \textbf{fail this test}:
-they are \textbf{1.4--2.4$\times$}
+they are \textbf{1.9--3.9$\times$}
 too uniform, and they
 disagree along the
 \textbf{wrong axes}.
@@ -60,8 +61,9 @@ disagree along the
 %%%%%%%% LEFT COLUMN
 
 \title{The Collapse of Heterogeneity\\in Silicon Philosophers}
-\author{Yuanming Shi\quad Andreas Haupt}
-\institution{Adobe Inc.\quad Stanford University}
+
+{\color{gray}\fontsizeauthor Yuanming Shi\quad Andreas Haupt}\\[0.2em]
+{\color{gray}Adobe Inc.\quad Stanford University}
 
 \section{Question}
 Can an LLM stand in for a
@@ -69,7 +71,7 @@ population of minds?
 
 \section{Setup}
 \begin{itemize}
-\item 277 PhilPeople philosophers
+\item $N=277$ PhilPeople philosophers
 \item 100 PhilPapers 2020 questions
 \item 7 profile-conditioned LLMs
 \item Temperature 0; Accept $\to$ Reject
@@ -84,49 +86,84 @@ coded onto $[0,1]$
 \end{center}
 {\tablenote Fig.~1. Profile $\to$ question $\to$ coded stance $\to$ fidelity.}
 
-\section{Spread collapses (Table~1)}
-{\tablefont
-\begin{tabular}{@{}l r r@{}}
+\section{Spread collapses}
+{\tablefont\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccc@{}}
 \toprule
-Source & Resp\% & Per-Q Var \\
+Model & N & Q & Responses & Resp\% & Per-Q Var \\
 \midrule
-Human & 19.1 & 0.062 \\
-Claude Sonnet 4.5 & 36.2 & 0.043 \\
-Llama 3.1 8B & 63.0 & 0.042 \\
-Mistral 7B & 70.0 & 0.029 \\
-GPT-4o & 48.4 & 0.027 \\
-GPT-5.1 & 49.1 & 0.026 \\
+Human & 277 & 100 & 10{,}768 & 38.9\% & 0.053 \\
+\midrule
+GPT-4o & 277 & 100 & 16{,}670 & 60.2\% & 0.014 \\
+GPT-5.1 & 276$^\dagger$ & 100 & 16{,}526 & 59.9\% & 0.014 \\
+Claude-Sonnet-4.5 & 277 & 100 & 16{,}612 & 60.0\% & 0.026 \\
+Llama-3.1-8B & 277 & 100 & 19{,}144 & 69.1\% & 0.026 \\
+Llama-3.1-8B (FT) & 277 & 100 & 18{,}413 & 66.5\% & 0.019 \\
+Mistral-7B & 277 & 100 & 18{,}764 & 67.7\% & 0.028 \\
+Qwen-3-4B & 277 & 100 & 23{,}077 & 83.3\% & 0.016 \\
 \bottomrule
-\end{tabular}\\[0.3em]
+\end{tabular}}\\[0.25em]
 }
-{\tablenote Humans are $1.4$--$2.4\times$ more variable than every LLM.}
+{\tablenote Paper Table~1. Humans are $1.9$--$3.9\times$ more variable.
+$^\dagger$One silicon philosopher returned empty results.}
 
-\section{Correlations inflate (Table~2)}
-{\tablefont
-\begin{tabular}{@{}l r r@{}}
+\section{Closest still not close}
+{\tablefont\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccc@{}}
 \toprule
-Source & Max $|r|$ & \% Sig. \\
+Model & KL Div.\ ($\downarrow$) & JS Div.\ ($\downarrow$) & Pearson $r$ ($\uparrow$) \\
 \midrule
-PhilPapers 2020 & 0.29 & ${\sim}$5 \\
-Human sample & 0.57 & ${\sim}$5 \\
-Claude Sonnet 4.5 & 0.82 & 13.7 \\
-GPT-5.1 & 0.93 & 13.3 \\
+Claude-Sonnet-4.5 & 0.052 & 0.010 & 0.495 \\
+Llama-3.1-8B      & 0.055 & 0.015 & 0.268 \\
+Llama-3.1-8B (FT) & 0.291 & 0.087 & 0.272 \\
+Mistral-7B        & 0.653 & 0.178 & 0.264 \\
+Qwen-3-4B         & 0.907 & 0.160 & 0.291 \\
+GPT-5.1           & 0.974 & 0.142 & 0.422 \\
+GPT-4o            & 1.012 & 0.145 & 0.416 \\
 \bottomrule
-\end{tabular}\\[0.3em]
+\end{tabular}}\\[0.25em]
 }
-{\tablenote LLMs invent 2--3$\times$ more significant specialist links.}
+{\tablenote Paper Table~2. Flattened $277\times 100$ matrices vs.\ human.}
+
+\section{Normative domains fail most}
+{\tablefont\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}rlccc@{}}
+\toprule
+Rank & Domain & RMSE & H.Var & N \\
+\midrule
+1 & Aesthetics & 0.216 & 0.014 & 1 \\
+2 & Philosophy of Language & 0.257 & 0.036 & 7 \\
+3 & History of Philosophy & 0.271 & 0.031 & 4 \\
+4 & Political \& Social Phil. & 0.278 & 0.044 & 7 \\
+5 & Phil.\ Methodology & 0.279 & 0.064 & 6 \\
+6 & Philosophy of Mind & 0.284 & 0.044 & 14 \\
+7 & Metaphysics & 0.295 & 0.040 & 17 \\
+8 & Decision Theory & 0.297 & 0.032 & 3 \\
+9 & Epistemology & 0.310 & 0.053 & 10 \\
+10 & Philosophy of Science & 0.323 & 0.032 & 4 \\
+11 & Logic \& Formal Phil. & 0.349 & 0.036 & 5 \\
+12 & Ethics \& Moral Phil. & 0.362 & 0.082 & 10 \\
+13 & Applied Ethics & 0.406 & 0.100 & 8 \\
+14 & Philosophy of Religion & 0.412 & 0.097 & 4 \\
+\bottomrule
+\end{tabular}}\\[0.25em]
+}
+{\tablenote Paper Table~5. RMSE tracks human variance ($r=0.75$).}
 
 \vfill
-\vspace{0.4em}
+\vspace{0.2em}
 \noindent
-\includegraphics[height=3.8cm]{img/logo-adobe}%
-\hfill
-\includegraphics[height=3.8cm]{img/logo-stanford}%
-\hfill
-\includegraphics[height=3.8cm]{img/logo-del}
+\begin{tabular}{@{}c@{\hspace{0.3em}}c@{\hspace{0.3em}}c@{}}
+\includegraphics[height=2.5cm]{img/logo-adobe} &
+\includegraphics[height=2.5cm]{img/logo-stanford} &
+\includegraphics[height=2.5cm]{img/logo-del}
+\end{tabular}
 
-\vspace{0.45em}
-{\color{gray}\fontsize{22}{28}\selectfont
+\vspace{0.25em}
+{\color{gray}\fontsize{20}{26}\selectfont
 WM@Booth 2026
 }
 
@@ -135,54 +172,84 @@ WM@Booth 2026
 
 \section{Human vs.\ Claude}
 \begin{center}
-\includegraphics[width=\textwidth]{figures/figure1_human_vs_sonnet}
+\includegraphics[width=0.92\textwidth]{figures/figure1_human_vs_sonnet}
 \end{center}
 {\tablenote Fig.~3a. Each cell is one philosopher on one question.
 Humans speckled; Claude forms vertical bands.}
 
-\section{Wrong axes (Table~7)}
-{\tablefont
-\begin{tabular}{@{}l r r@{}}
+\section{Wrong axes}
+{\tablefont\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lcccc@{}}
 \toprule
-Source & Var(6) & Elem $r$ \\
+Source & Var(6) & Elem $r$ & Load $r$ & Q.\ Overlap \\
 \midrule
-Human & 22.4\% & --- \\
-Claude Sonnet 4.5 & 31.7\% & 0.108 \\
-Llama 3.1 8B (FT) & 33.5\% & 0.079 \\
-GPT-4o & 28.0\% & 0.055 \\
-GPT-5.1 & 28.9\% & 0.049 \\
+Human ($N=277$) & 71.1\% & --- & --- & --- \\
+\midrule
+Claude-Sonnet-4.5 & 72.3\% & 0.245** & 0.023 & 0.8/5 \\
+GPT-4o & 83.0\% & 0.103** & 0.110 & 0.8/5 \\
+GPT-5.1 & 81.6\% & 0.099** & $-$0.137 & 0.7/5 \\
+Llama-3.1-8B (FT) & 61.2\% & 0.065* & $-$0.063 & 0.7/5 \\
+Mistral-7B & 73.8\% & 0.027 & $-$0.041 & 0.7/5 \\
+Qwen-3-4B & 67.8\% & 0.027 & 0.045 & 0.8/5 \\
+Llama-3.1-8B & 62.4\% & 0.016 & 0.026 & 0.7/5 \\
 \bottomrule
-\end{tabular}\\[0.3em]
+\end{tabular}}\\[0.25em]
 }
-{\tablenote Models collapse disagreement onto fewer, topical axes.
-Best pairwise alignment is still weak ($r\le 0.11$).}
+{\tablenote Paper Table~6. GPT models dump more variance into 6 axes.
+Best loading alignment is still weak.}
 
-\section{Stereotypes fill the gap (Table~3)}
-{\tablefont
-\begin{tabular}{@{}p{0.55\textwidth} r r@{}}
+\section{Stereotypes fill the gap}
+{\tablefont\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lcccc@{}}
 \toprule
-Specialist effect & Human & LLM \\
+& \multicolumn{2}{c}{\emph{Ground Truth ($N=277$)}} & \multicolumn{2}{c}{\emph{LLM Predictions}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+Specialist Effect & Diff & Sig & Avg Diff & Sig Models \\
 \midrule
-Biology $\to$ biol.\ identity & $+11$\,pp & $+43$\,pp \\
-Biology $\to$ psych.\ identity & $+4$\,pp & $-66$\,pp \\
-Ancient $\to$ Aristotelian & $+2$\,pp & $+69$\,pp \\
+Phil.\ Biology $\rightarrow$ Personal identity: biological  & $+11.4$\,pp & n.s. & $+43$\,pp & 4/7*** \\
+Phil.\ Biology $\rightarrow$ Personal identity: psychological  & $+4.1$\,pp & n.s. & $-65.7$\,pp & 3/7*** \\
+Ancient Phil.\ $\rightarrow$ Practical reason: Aristotelian  & $+1.9$\,pp & n.s. & $+68.9$\,pp & 7/7*** \\
 \bottomrule
-\end{tabular}\\[0.3em]
+\end{tabular}}\\[0.25em]
 }
-{\tablenote Ground truth n.s.; LLM effects significant in 3--7 of 7 models.}
+{\tablenote Paper Table~3. Ground truth n.s.; LLMs invent the link.}
 
-\section{DPO does not restore it (Table~10)}
-{\tablefont
-\begin{tabular}{@{}l r r@{}}
+\section{Question structure}
+{\tablefont\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lcccc@{}}
 \toprule
-Llama 3.1 8B & Entropy & Corr.\ KL \\
+Model & Elem $r$ & RV & KL & JS \\
 \midrule
-Base & 0.662 & 0.155 \\
-DPO fine-tuned & 0.605 & 0.062 \\
+Sonnet-4.5 & 0.182** & 0.318 & 0.188 & 0.048 \\
+GPT-5.1 & 0.089** & 0.307 & 0.468 & 0.110 \\
+GPT-4o & 0.088** & 0.318 & 0.485 & 0.114 \\
+Llama-3.1-8B (FT) & 0.044* & 0.224 & 0.176 & 0.046 \\
+Mistral-7B & 0.043* & 0.267 & 0.387 & 0.088 \\
+Qwen-3-4B & 0.024 & 0.321 & 0.670 & 0.138 \\
+Llama-3.1-8B & 0.020 & 0.234 & 0.195 & 0.046 \\
 \bottomrule
-\end{tabular}\\[0.3em]
+\end{tabular}}\\[0.25em]
 }
-{\tablenote Structure improves (KL $-60\%$); diversity falls (entropy $-8.6\%$).}
+{\tablenote Paper Table~7. $100\times 100$ question-correlation matrices.
+**$p<0.01$, *$p<0.05$.}
+
+\section{DPO does not restore it}
+{\tablefont\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+& \multicolumn{2}{c}{\emph{Resp.\ Div.}} & \multicolumn{3}{c}{\emph{Struct.\ Coh.}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-6}
+Model & Entr. & KL & Elem $r$ & C.KL & C.JS \\
+\midrule
+Llama Base & 0.737 & 0.07 & 0.020 & 0.195 & 0.046 \\
+Llama DPO  & 0.794 & 0.40 & 0.044* & 0.176 & 0.046 \\
+\bottomrule
+\end{tabular}}
+}
 
 }
 \end{document}
