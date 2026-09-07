@@ -173,6 +173,7 @@ function initializeVisualizations() {
             'Claude Sonnet 4.5',
             'GPT-4o',
             'GPT-5.1',
+            'Grok 4.3',
             'Llama 3.1 8B',
             'Llama 3.1 8B (FT)',
             'Mistral 7B',
