@@ -1,12 +1,9 @@
 # Paper table update — Grok 4.3
 
-Updated `assets/figure1_stats_bc.csv` (Figure 1–style per-question variance / var-ratio table) to include:
+Updated `assets/figure1_stats_bc.csv` with **Grok 4.3** only (full demographic silicon sample, 277×100).
 
-- **Grok 4.3** — full demographic silicon sample (277×100), OpenRouter, reasoning off
-- **Grok 4.3 (name-only)** — ablation without demographics
+Name-only ablation results are **excluded** from presentation tables.
 
-Unchanged:
-- `assets/domain_heterogeneity_comparison.csv` (needs question→domain labels from Appendix J; not available in-repo)
-- `assets/questions_data.json` response matrices (Grok per-cell responses not embedded; variance aggregates only)
+Unchanged: domain heterogeneity CSV; per-cell `questions_data.json` matrices.
 
-See `reports/GROK43_EXECUTIVE_SUMMARY.md` for the full §3.2 metric comparison.
+See `reports/GROK43_EXECUTIVE_SUMMARY.md`.
